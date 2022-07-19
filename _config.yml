@@ -12,15 +12,15 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "neon" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "eln0ty"
+title                    : "Emp3r0r10"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Abdallah Elnoty"
-description              : "Malware Analysis & Reverse Engineering"
+name                     : "Abdelrahman Elshinbary"
+description              : "Penetration Tester & HTB Player"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -102,30 +102,30 @@ analytics:
 
 # Site Author
 author:
-  name             : "Abdallah Elnoty"
+  name             : "Abdelrahman Elshinbary"
   avatar           : /assets/images/site_data/avatar.jpg # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Malware Analysis & Reverse Engineering"
+  bio              : "Penetration Tester & HTB Player"
   location         : "127.0.0.1"
   email            :
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:abdallahelnoty@gmail.com"
+      url: "mailto:abdelrahmanmahmoud0301@@gmail.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/eln0ty"
+      url: "https://twitter.com/emp3r0r10"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
-      url: "https://facebook.com/eln0ty"
+      # url: "https://facebook.com/eln0ty
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/eln0ty"
+      url: "https://www.linkedin.com/in/emp3r0r10"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/eln0ty"
+      url: "https://github.com/emp3r0r10"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
