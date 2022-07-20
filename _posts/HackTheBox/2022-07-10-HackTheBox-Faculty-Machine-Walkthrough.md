@@ -1,3 +1,15 @@
+---
+title: "Faculty Machine Writeup"
+classes: wide
+header:
+  teaser: /assets/images/hackthebox/Faculty.png
+ribbon: red
+description: "Faculty is medium machine"
+categories:
+  - HackTheBox
+toc: false
+---
+
 # HackTheBox Faculty Machine Walkthrough
 
 <img src="/assets/images/hackthebox/Faculty.png" style="zoom:50%;" />
