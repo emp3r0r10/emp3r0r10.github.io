@@ -10,8 +10,6 @@ categories:
 toc: false
 ---
 
-# HackTheBox Faculty Machine Walkthrough
-
 <img src="/assets/images/hackthebox/Faculty.png" style="zoom:50%;" />
 
 ## Recon
