@@ -76,7 +76,7 @@ Now that the vulnerability is working, we can try to read different files from t
 
 `./login.php`
 
-![](/home/emperor10/Pictures/login.png)
+![](/assets/images/hackthebox/Faculty-Writeup/login.png)
 
 Notice the included file `./db_connect.php`, let's try to read it.
 
