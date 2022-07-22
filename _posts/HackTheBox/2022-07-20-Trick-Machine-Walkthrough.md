@@ -1,4 +1,3 @@
-  GNU nano 6.0                                                      2022-07-10-Faculty-Machine-Walkthrough.md                                                               
 ---
 title: "Trick Machine Writeup"
 classes: wide
@@ -17,23 +16,23 @@ toc: false
 
 First, let's start with nmap port scanning.
 
-![nmap-results](/assets/images/hackthebox/Trick-Writeup/nmap-results.png)
+![](/assets/images/hackthebox/Trick-Writeup/nmap-results.png)
 
 We can see that port 80 is open so let's check the running web service.
 
-![trick-first-domain](/assets/images/hackthebox/Trick-Writeup/trick-first-domain.png)
+![](/assets/images/hackthebox/Trick-Writeup/trick-first-domain.png)
 
 We can see port 53 is open, so let's try zone transfer. it shows the following results:
 
-![dig-results](/assets/images/hackthebox/Trick-Writeup/dig-results.png)
+![](/assets/images/hackthebox/Trick-Writeup/dig-results.png)
 
 Discover the `preprod-payroll.trick.htb` subdomain.
 
 I tried admin/admin as the login creds but it didn't work, so I tried basic SQL injection ` admin' or 1=1 -- -` in the username field and it successfully bypassed the login page.
 
-![bypass-login](/assets/images/hackthebox/Trick-Writeup/bypass-login.png)
+![](/assets/images/hackthebox/Trick-Writeup/bypass-login.png)
 
-![LFI](/assets/images/hackthebox/Trick-Writeup/page-parameter.png)
+![](/assets/images/hackthebox/Trick-Writeup/page-parameter.png)
 
 The `page` parameter looks interesting. we can try `local file inclusion` in it with `../../../../../../../../etc/passwd`, but not working.
 
@@ -41,21 +40,21 @@ After some checks I found that the value of page parameter is `users` ,`home`, s
 
 So we can try `php://filter/convert.base64-encode/resource=index` and it shows the following results:
 
-![LFI](/assets/images/hackthebox/Trick-Writeup/LFI.png)
+![](/assets/images/hackthebox/Trick-Writeup/LFI.png)
 
 decode it from base64 and show the following results:
 
 `index`
 
-![index](/assets/images/hackthebox/Trick-Writeup/index.png)
+![](/assets/images/hackthebox/Trick-Writeup/index.png)
 
 `login`
 
-![login](/assets/images/hackthebox/Trick-Writeup/login.png)
+![](/assets/images/hackthebox/Trick-Writeup/login.png)
 
 Notice the included file `./db_connect.php`, let’s try to read it.
 
-![db_connect](/assets/images/hackthebox/Trick-Writeup/db_connect.png)
+![](/assets/images/hackthebox/Trick-Writeup/db_connect.png)
 
 I tried to ssh with this creds, but not working.
 
@@ -75,19 +74,19 @@ Dicover it I found `local file inclusion` also in it. let's try to read:
 
 `/home/mishael/.ssh/id_rsa`
 
-![id_rsa-michael](/assets/images/hackthebox/Trick-Writeup/id_rsa-michael.png)
+![](/assets/images/hackthebox/Trick-Writeup/id_rsa-michael.png)
 
 > Remember to change the permissions of the `id_rsa` file to 600
 
 Now we can ssh into box with `michael` user and read `user.txt`.
 
-![user.txt](/assets/images/hackthebox/Trick-Writeup/user.txt.png)
+![](/assets/images/hackthebox/Trick-Writeup/user.txt.png)
 
 ## Shell as root
 
 Running `sudo -l` , we can see that `michael` user can restart fail2ban service as root user without password.
 
-![sudo](/assets/images/hackthebox/Trick-Writeup/sudo.png)
+![](/assets/images/hackthebox/Trick-Writeup/sudo.png)
 
 But what is fail2ban? `fail2ban is an intrusion prevention software framework that protects computer servers from brute-force attacks.`
 
@@ -95,9 +94,9 @@ I found a [post](https://youssef-ichioui.medium.com/abusing-fail2ban-misconfigur
 
 But when I try to do it I don't have permission to modify it, so I can delete it and put it again with my payload.
 
-![actionban](/assets/images/hackthebox/Trick-Writeup/actionban.png)
+![](/assets/images/hackthebox/Trick-Writeup/actionban.png)
 
-![bash](/assets/images/hackthebox/Trick-Writeup/bash.png)
+![](/assets/images/hackthebox/Trick-Writeup/bash.png)
 
 > +s is the `setuid` bit, which tells the OS to execute that program  with the userid of its owner.  This is typically used with files owned  by root to allow normal users to execute them as root.
 
@@ -105,7 +104,7 @@ Then use hydra to make failed login attempts to get banned.
 
 After being banned,we can excute `/bin/bash` as root.	
 
-![hydra](/assets/images/hackthebox/Trick-Writeup/hydra.png)
+![](/assets/images/hackthebox/Trick-Writeup/hydra.png)
 
-![root.txt](/assets/images/hackthebox/Trick-Writeup/root.txt.png)
+![](/assets/images/hackthebox/Trick-Writeup/root.txt.png)
 
