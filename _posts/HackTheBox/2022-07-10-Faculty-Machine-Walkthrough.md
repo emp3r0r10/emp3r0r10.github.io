@@ -32,7 +32,7 @@ This `/admin` path looks interesting, so let's run gobuster against it (this wil
 
 Now if we can go to the `/admin` path we can see a login page.
 
-I tried admin/admin as the login creds but it didn't work, so I tried basic SQL injection ` admin' or 1=1 -- -` in the username field and it successfully bypassed the login page.
+I tried `admin/admin` as the login creds but it didn't work, so I tried basic SQL injection ` admin' or 1=1 -- -` in the username field and it successfully bypassed the login page.
 
 ![](/assets/images/hackthebox/Faculty-Writeup/bypass-login.png)
 
