@@ -12,11 +12,6 @@ toc: false
 
 <img src="/assets/images/hackthebox/Timelapse-Writeup/Timelapse.png" style="zoom:50%;" />
 
-## Recon
-# HackTheBox Timelapse Walkthrough
-
-<img src="/assets/images/hackthebox/Timelapse-Writeup/Timelapse.png" style="zoom:50%;" />
-
 Timelapse is an easy windows machine that involves smb enumeration, password hash cracking, and exploitation of weak active directory configuration.
 
 ## Recon
