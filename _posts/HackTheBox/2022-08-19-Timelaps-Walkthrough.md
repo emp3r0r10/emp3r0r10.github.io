@@ -1,8 +1,8 @@
 ---
-title: "Faculty Machine Writeup"
+title: "Timelapse Machine Writeup"
 classes: wide
 header:
-  teaser: /assets/images/hackthebox/Timelapse-Writeup/Faculty.png
+  teaser: /assets/images/hackthebox/Timelapse-Writeup/Timelapse.png
 ribbon: red
 description: "Timelapse is an easy windows machine that involves smb enumeration, password hash cracking, and exploitation of weak active directory configuration."
 categories:
@@ -10,7 +10,7 @@ categories:
 toc: false
 ---
 
-<img src="/assets/images/hackthebox/Faculty-Writeup/Faculty.png" style="zoom:50%;" />
+<img src="/assets/images/hackthebox/Timelapse-Writeup/Timelapse.png" style="zoom:50%;" />
 
 ## Recon
 # HackTheBox Timelapse Walkthrough
