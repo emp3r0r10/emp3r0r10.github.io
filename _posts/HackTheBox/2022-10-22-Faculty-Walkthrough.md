@@ -12,6 +12,8 @@ toc: false
 
 <img src="/assets/images/hackthebox/Faculty-Writeup/Faculty.png" style="zoom:50%;" />
 
+Faculty is a medium linux machine that involves mpdf exploitation, meta-git and privilege escalation with gdb.
+
 ## Recon
 
 First, let's start with nmap port scanning.
