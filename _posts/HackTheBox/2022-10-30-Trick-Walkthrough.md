@@ -4,13 +4,15 @@ classes: wide
 header:
   teaser: /assets/images/hackthebox/Trick-Writeup/Trick.png
 ribbon: red
-description: "Trick is easy machine"
+description: "Trick is an easy linux machine that involves exploiting SQL injection, LFI and fail2ban service."
 categories:
   - HackTheBox
 toc: false
 ---
 
 <img src="/assets/images/hackthebox/Trick-Writeup/Trick.png" alt="Trick" style="zoom:50%;" />
+
+Trick is an easy linux machine that involves exploiting SQL injection, LFI and fail2ban service.
 
 ## Recon
 
