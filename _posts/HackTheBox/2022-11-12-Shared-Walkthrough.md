@@ -1,5 +1,5 @@
 ---
-title: "Faculty Machine Writeup"
+title: "Shared Machine Writeup"
 classes: wide
 header:
   teaser: /assets/images/hackthebox/Shared-Writeup/Shared.png
