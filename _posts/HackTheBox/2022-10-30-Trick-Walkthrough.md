@@ -108,9 +108,8 @@ So I had to move the file to `/tmp` directory, add my payload and overwrite the 
 
 Finally I used `hydra` to make failed login attempts and get banned.
 
-After geting banned, we can execute `/bin/bash` as root.	
+After geting banned, we can execute `/bin/bash` as root.  
 
 ![](/assets/images/hackthebox/Trick-Writeup/hydra.png)
 
 ![](/assets/images/hackthebox/Trick-Writeup/root.txt.png)
-
