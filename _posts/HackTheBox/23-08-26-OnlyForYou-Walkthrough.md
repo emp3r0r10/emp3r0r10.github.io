@@ -228,4 +228,4 @@ Let's download the tar file using pip3 which will in turn unzip and run the `set
 
 Now Let's run `/bin/bash` and use the `-p` option to run it in privileged mode to be able to read `root.txt`.
 
-![root-flag](root-flag.png)
+![root-flag](/assets/images/hackthebox/OnlyForYou-Writeup/rroot-flag.png)
