@@ -4,7 +4,7 @@ classes: wide
 header:
   teaser: /assets/images/tutorials/SIEM_Tutorial/Part_1/SIEM.png
 ribbon: red
-description: "Hello everyone, today I'm going to share with you a SIEM tutorial that consists of three parts:"
+description: "Hello everyone, today I'm going to share with you a series of tutorials about SIEM solutions. Tutorial consists of three parts."
 categories:
   - Tutorials
 toc: false
@@ -32,7 +32,7 @@ toc: false
 
 ## Introduction
 
-Hello everyone, today I'm going to share with you a SIEM tutorial that consists of three parts.
+Hello everyone, today I'm going to share with you a series of tutorials about SIEM solutions. Tutorial consists of three parts.
 
 In **part 1**, we will start by understanding the basics of logs and events, which are essential for tracking activities within IT systems. Then, we will explore how to analyze and monitor these logs effectively to gain insights and detect anomalies. Finally, we will introduce SIEM solutions, which combine log management, analysis, and monitoring into a comprehensive security management system.
 
