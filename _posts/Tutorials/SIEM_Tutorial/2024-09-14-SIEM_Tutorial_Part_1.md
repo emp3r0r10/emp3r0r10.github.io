@@ -1,5 +1,5 @@
 ---
-title: "Drive Machine Writeup"
+title: "SIEM Tutorial - Part 1"
 classes: wide
 header:
   teaser: /assets/images/tutorials/SIEM_Tutorial/Part_1/SIEM.png
