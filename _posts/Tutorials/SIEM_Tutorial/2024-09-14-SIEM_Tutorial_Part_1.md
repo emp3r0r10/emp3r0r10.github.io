@@ -167,4 +167,4 @@ SIEM identifies unwanted behavior or suspicious patterns within logs based on co
 
 In the rest of this tutorial, we will use **Splunk**. Splunk is a powerful and versatile SIEM solution that provides comprehensive log management and security analytics capabilities. It is widely used by organizations to gain real-time insights into their security posture and to detect and respond to threats efficiently.
 
-Thank for reading.
+Thanks for reading.
