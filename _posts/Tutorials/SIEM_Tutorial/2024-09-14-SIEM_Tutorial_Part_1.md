@@ -76,11 +76,11 @@ Events are actions that occur in a system at any time and are recorded in logs.
 
 We can access logs and events in Windows using `Event Viewer`.
 
-![Windows_Logs]((/assets/images/tutorials/SIEM_Tutorial/Part_1/Windows_Logs.png)
+![Windows_Logs](/assets/images/tutorials/SIEM_Tutorial/Part_1/Windows_Logs.png)
 
 If we go to Windows logs, we can see categories of logs. Let’s access one of them to view the events.
 
-<img src="D:\Pentesting\Splunk_Tutorial\Windows_Events.png" alt="Windows_Events" style="zoom:200%;" />
+![Windows_Events](/assets/images/tutorials/SIEM_Tutorial/Part_1/Windows_Events.png)
 
 ### Linux Event Logs
 
@@ -124,7 +124,7 @@ Log analysis is performed using software solutions that collect, sort, and store
 
 Now that we understand what logs and events are, and have seen examples of them, as well as explored log analysis and monitoring, let's delve into another critical topic: SIEM (Security Information and Event Management) and how it can benefit monitoring and analysis.
 
-## Introduction to SIEM and its Solutions
+## Introduction to SIEM
 
 SIEM (Security Information and Event Management) is a software solution that collects and aggregates data from various systems into a centralized location. It helps organizations monitor logs, detect security threats, and identify vulnerabilities before they cause damage.
 
