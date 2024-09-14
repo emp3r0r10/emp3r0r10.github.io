@@ -12,7 +12,23 @@ toc: false
 
 <img src="/assets/images/tutorials/SIEM_Tutorial/Part_1/SIEM.png" alt="SIEM" style="zoom: 67%;" />
 
-[toc]
+## Table of Contents
+- [Introduction](#introduction)
+- [Introduction to Logs and Events](#introduction-to-logs-and-events)
+  - [What Are Events?](#what-are-events)
+  - [What Are Logs?](#what-are-logs)
+  - [Windows Event Logs](#windows-event-logs)
+  - [Linux Event Logs](#linux-event-logs)
+- [Introduction to Log Analysis and Monitoring](#introduction-to-log-analysis-and-monitoring)
+  - [Why Monitor and Analyze Logs?](#why-monitor-and-analyze-logs)
+  - [How to Perform Log Analysis?](#how-to-perform-log-analysis)
+  - [Popular Log Management Systems](#popular-log-management-systems)
+- [Introduction to SIEM](#introduction-to-siem)
+  - [SIEM Works by Combining Two Technologies](#siem-works-by-combining-two-technologies)
+  - [SIEM Input Sources](#siem-input-sources)
+  - [Popular SIEM Solutions](#popular-siem-solutions)
+  - [How to Choose a SIEM Solution](#how-to-choose-a-siem-solution)
+
 
 ## Introduction
 
