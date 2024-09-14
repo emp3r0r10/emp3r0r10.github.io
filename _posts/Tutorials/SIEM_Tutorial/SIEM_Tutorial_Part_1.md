@@ -2,7 +2,7 @@
 title: "Drive Machine Writeup"
 classes: wide
 header:
-  teaser: /assets/images/tutorials/SIEM_Tutorial/SIEM.png
+  teaser: /assets/images/tutorials/SIEM_Tutorial/Part_1/SIEM.png
 ribbon: red
 description: "Hello everyone, today I'm going to share with you a SIEM tutorial that consists of three parts:"
 categories:
@@ -10,7 +10,7 @@ categories:
 toc: false
 ---
 
-<img src="/assets/images/tutorials/SIEM_Tutorial/SIEM.png" alt="SIEM" style="zoom: 67%;" />
+<img src="/assets/images/tutorials/SIEM_Tutorial/Part_1/SIEM.png" alt="SIEM" style="zoom: 67%;" />
 
 [TOC]
 
@@ -76,7 +76,7 @@ Events are actions that occur in a system at any time and are recorded in logs.
 
 We can access logs and events in Windows using `Event Viewer`.
 
-![Windows_Logs]/assets/images/tutorials/SIEM_Tutorial/Windows_Logs.png)
+![Windows_Logs]/assets/images/tutorials/SIEM_Tutorial/Part_1/Windows_Logs.png)
 
 If we go to Windows logs, we can see categories of logs. Let’s access one of them to view the events.
 
@@ -86,11 +86,11 @@ If we go to Windows logs, we can see categories of logs. Let’s access one of t
 
 Like Windows, Linux stores its logs in the `/var/log` directory.
 
-![Linux_Logs]/assets/images/tutorials/SIEM_Tutorial/Linux_Logs.png)
+![Linux_Logs]/assets/images/tutorials/SIEM_Tutorial/Part_1/Linux_Logs.png)
 
 We can see above It's different from windows, let's try to explore nginx logs and events. 
 
-![Linux_Events]/assets/images/tutorials/SIEM_Tutorial/Linux_Events.png)
+![Linux_Events]/assets/images/tutorials/SIEM_Tutorial/Part_1/Linux_Events.png)
 
 ## Introduction to Log Analysis and Monitoring
 
