@@ -32,19 +32,7 @@ toc: false
 
 ## Introduction
 
-Hello everyone, today I'm going to share with you a SIEM tutorial that consists of three parts:
-
-1. **Part #1**
-   1. Introduction to logs and events
-   2. Introduction to logs analysis and monitoring
-   3. Introduction to SIEM and its solutions
-2. **Part #2**
-   1. Introduction to Splunk
-   2. How Splunk works
-   3. Explain Splunk components
-   4. Practice on a demo
-3. **Part #3**
-   1. Explore Splunk forwarder and create home lab
+Hello everyone, today I'm going to share with you a SIEM tutorial that consists of three parts.
 
 In **part 1**, we will start by understanding the basics of logs and events, which are essential for tracking activities within IT systems. Then, we will explore how to analyze and monitor these logs effectively to gain insights and detect anomalies. Finally, we will introduce SIEM solutions, which combine log management, analysis, and monitoring into a comprehensive security management system.
 
