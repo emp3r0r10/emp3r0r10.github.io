@@ -10,7 +10,7 @@ categories:
 toc: false
 ---
 
-<img src="/assets/images/tutorials/SIEM_Tutorial/Part_1/SIEM.png" alt="SIEM" style="zoom: 67%;" />
+<img src="/assets/images/tutorials/SIEM_Tutorial/Part_1/SIEM.png" alt="SIEM" style="zoom: 100%;" />
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -149,12 +149,12 @@ SIEM identifies unwanted behavior or suspicious patterns within logs based on co
 
 ### Popular SIEM Solutions
 
-1. **Exabeam Fusion**
-2. **Splunk**
-3. **LogRhythm**
-4. **IBM QRadar SIEM**
-5. **Securonix**
-6. **McAfee Enterprise Security Manager**
+1. ManageEngine Log360
+2. Splunk
+3. LogRhythm
+4. IBM QRadar SIEM
+5. Securonix
+
 
 ### How to Choose a SIEM Solution
 
