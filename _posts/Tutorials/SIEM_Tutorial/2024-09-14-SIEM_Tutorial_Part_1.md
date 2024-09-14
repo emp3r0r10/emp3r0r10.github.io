@@ -34,7 +34,7 @@ toc: false
 
 Hello everyone, today I'm going to share with you a series of tutorials about SIEM solutions. Tutorial consists of three parts.
 
-In **part 1**, we will start by understanding the basics of logs and events, which are essential for tracking activities within IT systems. Then, we will explore how to analyze and monitor these logs effectively to gain insights and detect anomalies. Finally, we will introduce SIEM solutions, which combine log management, analysis, and monitoring into a comprehensive security management system.
+In **[part 1](https://emp3r0r10.github.io/tutorials/SIEM_Tutorial_Part_1/)**, we will start by understanding the basics of logs and events, which are essential for tracking activities within IT systems. Then, we will explore how to analyze and monitor these logs effectively to gain insights and detect anomalies. Finally, we will introduce SIEM solutions, which combine log management, analysis, and monitoring into a comprehensive security management system.
 
 So, let's get started. Before we delve into SIEM and its capabilities, we need to understand some foundational concepts. We will cover two important concepts:	
 
