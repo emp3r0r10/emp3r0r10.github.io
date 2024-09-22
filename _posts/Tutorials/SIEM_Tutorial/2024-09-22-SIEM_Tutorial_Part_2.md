@@ -172,7 +172,7 @@ Now start searching for logs.
 
 Let’s put everything together and practice with a demo.
 
-For today’s demo, we will install botsv3. Follow the installation process and start the investigation.
+For today’s demo, we will install <a href='https://github.com/splunk/botsv3'>botsv3</a>. Follow the installation process and start the investigation.
 
 First, type the index to access all logs under `botsv3`.
 
