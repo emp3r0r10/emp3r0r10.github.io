@@ -2,7 +2,7 @@
 title: "SIEM Tutorial - Part 2"
 classes: wide
 header:
-  teaser: /assets/images/tutorials/SIEM_Tutorial/Part_1/Splunk.png
+  teaser: /assets/images/tutorials/SIEM_Tutorial/Part_2/Splunk.png
 ribbon: red
 description: "Hello security analysts, today I'm back with the second part of the SIEM tutorial. In the first part, we discussed logs and events, understanding log monitoring and analysis, how to perform it, and we took a look at what SIEM is along with its benefits and solutions."
 categories:
@@ -210,7 +210,7 @@ Let’s sort them according to their count and display the country of each IP ad
 
 The final search query:
 
-```Sp
+```
 index=botsv3 earliest=0 sourcetype="stream:ip" (src_mac=* AND dest_mac=*) 
 | stats latest(_time) as _time count by src_ip src_mac
 | table _time dest_ip dest_mac src_ip src_mac count
