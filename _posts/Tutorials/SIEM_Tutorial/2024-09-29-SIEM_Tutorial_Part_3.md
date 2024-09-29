@@ -2,9 +2,9 @@
 title: "SIEM Tutorial - Part 3"
 classes: wide
 header:
-  teaser: /assets/images/tutorials/SIEM_Tutorial/Part_3/Splunk_Forwarder.png
+  teaser: /assets/images/tutorials/SIEM_Tutorial/Part_2/Splunk.png
 ribbon: red
-description: "Hello, in **[Part 2](https://emp3r0r10.github.io/tutorials/SIEM_Tutorial_Part_2/)**, we covered what Splunk is, its components, explored its interface, and solve a small piece of the `botsv3` dataset. Today, we are going to dive into another functionality in Splunk."
+description: "Hello, in part 2, we covered what Splunk is, its components, explored its interface, and solve a small piece of the `botsv3` dataset. Today, we are going to dive into another functionality in Splunk."
 categories:
   - Tutorials
 toc: false
