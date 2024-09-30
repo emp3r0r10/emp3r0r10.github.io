@@ -172,6 +172,6 @@ In this tutorial, we successfully forwarded logs from a Linux machine to Splunk 
 - **Part 2**: Introduction to Splunk, its components, and hands-on practice with a demo.
 - **Part 3**: Set up a home lab with Splunk Forwarder and analyzed attack data.
 
-If you find this tutorial helpful, you can follow me on [Twitter](https://x.com/emp3r0r10). Keep going!
+If you find this tutorial helpful, you can follow me on [Twitter](https://x.com/emp3r0r10) for more updates. Keep going!
 
 Thanks for reading.
