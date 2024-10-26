@@ -63,15 +63,11 @@ select * from users where username='$user' and password='$password';
 If the application takes the username and password from user input without filtration or sanitization, an attacker can inject a malicious query like `OR 1=1`, which always evaluates to true, thereby bypassing authentication.
 
 ## Types of SQL Injection
-
 - ### **In-band** 
-
   - Error-based SQLI
-
   - Union-based SQLI
 
 - ### **Blind (Inferential)**
-
   - Time-based SQLI
   - Boolean SQLI
 
