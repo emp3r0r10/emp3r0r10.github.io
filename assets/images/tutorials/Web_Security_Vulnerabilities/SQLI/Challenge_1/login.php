@@ -1,0 +1,76 @@
+<?php
+session_start();
+require_once('db.php');
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+     if (isset($_POST['login'])) {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        // Vulnerable SQL query - no input sanitization
+        $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+
+        $result = mysqli_query($conn, $query);
+
+        if (mysqli_num_rows($result) === 1) {
+            header('Location: dashboard.php');
+        } else {
+            echo '<div style="color:red;background-color:#FF9999;width:15%;height:5%;margin-left:46rem;padding-top:15px">Invalid username or password.</div>';
+        }
+    }
+}
+?>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style type="text/css">
+        body {
+            background-color: #09B5E9;
+            align-items: center;
+            margin-top: 10rem;
+            font-family: Roboto, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            color:white;
+            font-size:50px;
+        }
+        .btn {
+            background-color: lightblue;
+            border: none;
+            border-radius: 10px;
+            font-size: 40px;
+            padding: 5px;
+            margin-top: 1rem;
+        }   
+        label {
+            font-size: 20px;
+        }
+        input {
+            height: 25px;
+        }                     
+    </style>
+</head>
+<body>
+    <h1>Login</h1>
+    <?php if (isset($error)) { ?>
+        <p><?php echo $error; ?></p>
+    <?php } ?>
+    <form method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <button type="submit" class="btn" name="login">Login</button>
+    </form>
+</body>
+</html>
