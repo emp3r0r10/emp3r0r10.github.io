@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SSRF Lab</title>
+    <style type="text/css">
+
+        body {
+            background-color: #09B5E9;
+            align-items: center;
+            margin-top: 10rem;
+            font-family: Roboto, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            color:white;
+            font-size:50px;
+        }
+
+        .btn {
+            background-color: lightblue;
+            border: none;
+            border-radius: 10px;
+            font-size: 40px;
+            padding: 5px;
+            margin-top: 1rem;
+        }
+        .text {
+            width: 10%;
+            height: 40px;
+        }
+        p {
+            color: red;
+            font-size: 20px;
+        }
+        input {
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <p>Your task is to access sensitive files on the server</p>
+    <h1>Enter URL</h1>
+    <form action="Lab_1.php" method="get">
+        <label for="url">URL</label>
+        <input type="text" id="url" name="url">
+        <br>
+        <button type="submit" class="btn">Fetch</button>
+    </form>
+</body>
+</html>
+
+<!-- Flag is in the main directory -->
