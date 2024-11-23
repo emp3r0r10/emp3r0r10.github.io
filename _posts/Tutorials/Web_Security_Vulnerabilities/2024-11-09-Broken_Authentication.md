@@ -10,7 +10,7 @@ categories:
 toc: false
 ---
 
-<img src="/assets/images/tutorials/Web_Security_Vulnerabilities/Broken_Authentication\Broken-Authentication.png" alt="Broken-Authentication" style="zoom: 100%;" />
+<img src="/assets/images/tutorials/Web_Security_Vulnerabilities/Broken_Authentication/Broken-Authentication.png" alt="Broken-Authentication" style="zoom: 100%;" />
 
 
 ## Table of Contents
