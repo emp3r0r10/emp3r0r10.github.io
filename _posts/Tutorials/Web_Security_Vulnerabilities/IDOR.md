@@ -267,7 +267,6 @@ Now, we can login to `John` account and access the profile.
 - [PortSwigger - IDOR](https://portswigger.net/web-security/access-control/idor)
 - [Imperva -IDOR](https://www.imperva.com/learn/application-security/insecure-direct-object-reference-idor/)
 - [Nahmsec - IDOR](https://www.youtube.com/watch?v=bCUqio4gNu4)
-
 - [HackXpert IDOR Lab](https://labs.hackxpert.com/IDOR/)
 
 ## Conclusion
