@@ -1,5 +1,5 @@
 ---
-title: "Web Security Vulnerabilities - SQL Injection"
+title: "Web Security Vulnerabilities - File Upload Vulnerabilities"
 classes: wide
 header:
   teaser: /assets/images/tutorials/Web_Security_Vulnerabilities/File_Upload/File-Upload-Cover.png
