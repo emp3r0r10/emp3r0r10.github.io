@@ -11,7 +11,7 @@ toc: false
 ---
 
 
-<img src="/assets/images/tutorials/Web_Security_Vulnerabilities/File_Upload/File-Upload-.png" alt="File-Upload" style="zoom: 100%;" />
+<img src="/assets/images/tutorials/Web_Security_Vulnerabilities/File_Upload/File-Upload.png" alt="File-Upload" style="zoom: 100%;" />
 
 ## Table of Contents
   - [What is File Upload Vulnerability?](#what-is-File-Upload-Vulnerability)
