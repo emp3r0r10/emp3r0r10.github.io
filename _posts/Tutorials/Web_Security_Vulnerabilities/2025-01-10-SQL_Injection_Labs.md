@@ -389,4 +389,4 @@ After trying to exfiltrate data, we can notice that `version()` is worked and ot
 
 ![WAF_Challenge_Bypass_Failed](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Lab/WAF_Challenge_Bypass_Failed.png)
 
-That's all for the day. Thanks for reading.
+At this time, I can't find a bypass for this situation, so that's all for today but I will keep it my mind. Thanks for reading.
