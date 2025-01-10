@@ -1,48 +1,28 @@
----
-title: "SQL Injection - Cyard Challenges"
-classes: wide
-header:
-  teaser: /assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/SQL_Labs_Cover.png
-ribbon: red
-description: "Hello, in this writeup, I will talk about how to find and exploit SQL Injection in `lims` app provided by [Cyard](https://cyard.0x4148.com/). The Challenge involves `Login` page. The objective is to bypass authentication and dump data from different places the whole app.
-"
-categories:
-  - Tutorials
-toc: false
----
-
-<img src="/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/SQL_Labs.png" alt="IDOR" style="zoom:100%;" />
-
-## Table of Contents
-  - [Introduction](#introduction)
-  - [Authentication Bypass](#authentication-bypass)
-    - [Union-Based SQL Injection](#union-based-sql-injection)
-    - [Error-Based SQL Injection](#error-based-sql-injection)
-  - [Admin Portal](#admin-portal)
-    - [Union-Based SQL Injection](#union-based-sql-injection-1)
-    - [Error-Based SQL Injection](#error-based-sql-injection-1)
-  - [Blind Boolean-Based SQL Injection Challenge](#blind-boolean-based-sql-injection-challenge)
-  - [SQL Injection: WAF Evasion](#sql-injection-waf-evasion)
+# SQL Injection Labs - Cyard Challenges
 
 ## Introduction
 
 Hello, in this writeup, I will talk about how to find and exploit SQL Injection in `lims` app provided by [Cyard](https://cyard.0x4148.com/). The Challenge involves `Login` page. The objective is to bypass authentication and dump data from different places the whole app.
 
+[TOC]
+
+
+
 ## Authentication Bypass
 
 First, let's visit the [app](https://livelabs.0x4148.com/lims) and start Login page.
 
-![Login_Page](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Login_Page.png)
+![Login_Page](D:\Vulnerabilities_Tutorial\Practice\Login_Page.png)
 
 As we learned in SQL Injection Tutorial (you can find it [here](https://emp3r0r10.github.io/tutorials/SQL-Injection/)), let's start to inject random credentials and see what happens
 
-![Login_test](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Login_test.png)
+![Login_test](D:\Vulnerabilities_Tutorial\Practice\Login_test.png)
 
 We can see above it just redirect us to the same login page which means that credentials is incorrect.
 
 Let's inject a single quote to see how the query will be broken.
 
- ![Login_single_quote](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Login_single_quote.png)
+ ![Login_single_quote](D:\Vulnerabilities_Tutorial\Practice\Login_single_quote.png)
 
 We can see above that the query was broken, but how the query looks like? let's break it down.
 
@@ -68,7 +48,7 @@ A user enters username and password and the server compares the password `hash`e
 
 So, if the server doesn't check for the password we can try `scenario #1`.
 
-![Login_Bypass_Scenario_1](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Login_Bypass_Scenario_1.png)
+![Login_Bypass_Scenario_1](D:\Vulnerabilities_Tutorial\Practice\Login_Bypass_Scenario_1.png)
 
 We can see above, it doesn't returned any result, which means it might verify the password.
 
@@ -82,7 +62,7 @@ If the application checks password returned from user and compare it with the pa
 select password from users where username='$user' and password='$pass';
 -- then compare the password with the one in the database.
 /* if (password == $row[password]) {
-    header('Location: dashboard.php');
+	header('Location: dashboard.php');
 } */
 ....
 ```
@@ -100,9 +80,9 @@ The same here, we will enter invalid user and use `union select 'Pass'` to make 
 select password from users where username='attacker' union select 'Pass' and password='Pass';
 ```
 
-![Login_Bypass](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Login_Bypass.png)
+![Login_Bypass](D:\Vulnerabilities_Tutorial\Practice\Login_Bypass.png)
 
-![Dahboard](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Dahboard.png)
+![Dahboard](D:\Vulnerabilities_Tutorial\Practice\Dahboard.png)
 
 ### Error-Based SQL Injection
 
@@ -142,11 +122,11 @@ As the first and third parameters are `null`, it will process the second argumen
 
 **Query to read exfiltrate `user()`:** `updatexml(null,concat(0x0a,user()),null)-- -`
 
-![Login_user](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Login_user.png)
+![Login_user](D:\Vulnerabilities_Tutorial\Practice\Login_user.png)
 
 **Query to read exfiltrate `version()`:** `updatexml(null,concat(0x0a,version()),null)-- -`
 
-![Login_version](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Login_version.png)
+![Login_version](D:\Vulnerabilities_Tutorial\Practice\Login_version.png)
 
 **Query to read exfiltrate `tables`:** `updatexml(null,concat(0x0a,(select table_name from information_schema.tables where table_schema=database() limit 0,1 )),null)-- -`
 
@@ -154,19 +134,19 @@ As the first and third parameters are `null`, it will process the second argumen
 
 
 
-![Login_Table_1](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Login_Table_1.png)
+![Login_Table_1](D:\Vulnerabilities_Tutorial\Practice\Login_Table_1.png)
 
-![Login_Table_2](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Login_Table_2.png)
+![Login_Table_2](D:\Vulnerabilities_Tutorial\Practice\Login_Table_2.png)
 
 **Query to read exfiltrate `columns`:** `updatexml(null,concat(0x0a,(select column_name from information_schema.columns where table_name='nominee' limit 0,1 )),null)-- -`
 
-![Login_Columns_1](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Login_Columns_1.png)
+![Login_Columns_1](D:\Vulnerabilities_Tutorial\Practice\Login_Columns_1.png)
 
-![Login_Columns_2](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Login_Columns_2.png)
+![Login_Columns_2](D:\Vulnerabilities_Tutorial\Practice\Login_Columns_2.png)
 
 Now, we have columns and tables let's extract usernames and phone numbers, etc from database.
 
-![Login_Extract_Data](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Login_Extract_Data.png)
+![Login_Extract_Data](D:\Vulnerabilities_Tutorial\Practice\Login_Extract_Data.png)
 
 ## Admin Portal
 
@@ -174,13 +154,13 @@ After we bypass login page, we will be redirected to `Admin Portal`, Let's see w
 
 We can see a `client.php` page and there is a `Client Status`, let's click it.
 
-![Portal_Client](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Portal_Client.png)
+![Portal_Client](D:\Vulnerabilities_Tutorial\Practice\Portal_Client.png)
 
 We can see there is a `client_id` parameter in the request, let's try to inject a single quote on it.
 
-![Protal_Clien_ID](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Protal_Clien_ID.png)
+![Protal_Clien_ID](D:\Vulnerabilities_Tutorial\Practice\Protal_Clien_ID.png)
 
-![Portal_Client_single_quote](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Portal_Client_single_quote.png)
+![Portal_Client_single_quote](D:\Vulnerabilities_Tutorial\Practice\Portal_Client_single_quote.png)
 
 We can see above, the response contains a SQL Error which indicates to SQL Injection.
 
@@ -192,45 +172,45 @@ To exfiltrate data using `union` statement, we need to know number of columns an
 
 **Query to read exfiltrate number of columns:** `' order by 100 -- -`. Reduce this number until you get the right number of columns which is `12`.
 
-![Portal_Client_Order_1](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Portal_Client_Order_1.png)
+![Portal_Client_Order_1](D:\Vulnerabilities_Tutorial\Practice\Portal_Client_Order_1.png)
 
-![Portal_Client_Order_2](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Portal_Client_Order_2.png)
+![Portal_Client_Order_2](D:\Vulnerabilities_Tutorial\Practice\Portal_Client_Order_2.png)
 
 Now, we can use `union` statement to determine the vulnerable/returned columns.
 
 We can see in the below image there are many columns returned from the database. We will use first 3 columns.
 
-![Portal_Client_union_1](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Portal_Client_union_1.png)
+![Portal_Client_union_1](D:\Vulnerabilities_Tutorial\Practice\Portal_Client_union_1.png)
 
-![Portal_Client_union_2](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Portal_Client_union_2.png)
+![Portal_Client_union_2](D:\Vulnerabilities_Tutorial\Practice\Portal_Client_union_2.png)
 
 Retrieve `database()`, `user()`, and `version()`.
 
-![Portal_Client_union_4](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Portal_Client_union_4.png)
+![Portal_Client_union_4](D:\Vulnerabilities_Tutorial\Practice\Portal_Client_union_4.png)
 
 Retrieve tables.
 
-![Portal_Client_union_5](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Portal_Client_union_5.png)
+![Portal_Client_union_5](D:\Vulnerabilities_Tutorial\Practice\Portal_Client_union_5.png)
 
-![Portal_Client_union_6](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Portal_Client_union_6.png)
+![Portal_Client_union_6](D:\Vulnerabilities_Tutorial\Practice\Portal_Client_union_6.png)
 
-![Portal_Client_union_7](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Portal_Client_union_7.png)
+![Portal_Client_union_7](D:\Vulnerabilities_Tutorial\Practice\Portal_Client_union_7.png)
 
 Retrieve Columns.
 
-![Portal_Client_union_8](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Portal_Client_union_8.png)
+![Portal_Client_union_8](D:\Vulnerabilities_Tutorial\Practice\Portal_Client_union_8.png)
 
-![Portal_Client_union_9](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Portal_Client_union_9.png)
+![Portal_Client_union_9](D:\Vulnerabilities_Tutorial\Practice\Portal_Client_union_9.png)
 
-![Portal_Client_union_10](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Portal_Client_union_10.png)
+![Portal_Client_union_10](D:\Vulnerabilities_Tutorial\Practice\Portal_Client_union_10.png)
 
-![Portal_Client_union_11](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Portal_Client_union_11.png)
+![Portal_Client_union_11](D:\Vulnerabilities_Tutorial\Practice\Portal_Client_union_11.png)
 
 Exfiltrate data from database.
 
-![Portal_Client_Extract_Data_1](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Portal_Client_Extract_Data_1.png)
+![Portal_Client_Extract_Data_1](D:\Vulnerabilities_Tutorial\Practice\Portal_Client_Extract_Data_1.png)
 
-![Portal_Client_Extract_Data_2](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Portal_Client_Extract_Data_2.png)
+![Portal_Client_Extract_Data_2](D:\Vulnerabilities_Tutorial\Practice\Portal_Client_Extract_Data_2.png)
 
 ### Error-Based SQL Injection
 
@@ -268,7 +248,7 @@ In `Boolean based sql injection`, we rely on the message returned from the appli
 
 Let's start the challenge.
 
-![Boolean_Challenge](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Boolean_Challenge.png)
+![Boolean_Challenge](D:\Vulnerabilities_Tutorial\Practice\Boolean_Challenge.png)
 
 
 
@@ -276,9 +256,9 @@ We can see the challenge contains login and reset password. I have tested login 
 
 If we enter `admin`, it gives us green message which means the user exist and red message means the user doesn't exist.
 
-![Boolean_true_message](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Boolean_true_message.png)
+![Boolean_true_message](D:\Vulnerabilities_Tutorial\Practice\Boolean_true_message.png)
 
-![Boolean_false_message.png](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Boolean_false_message.png.png)
+![Boolean_false_message.png](D:\Vulnerabilities_Tutorial\Practice\Boolean_false_message.png.png)
 
 
 
@@ -286,13 +266,13 @@ Let's intercept the request to burp and play with it.
 
 If we inject a single quote, the response will return `500 Internal server error` which is not usual.
 
-![Boolean_single_quote](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Boolean_single_quote.png)
+![Boolean_single_quote](D:\Vulnerabilities_Tutorial\Practice\Boolean_single_quote.png)
 
 
 
 Let's try to fix the query using `'and '1'='1` and the response will be normal again.
 
-![Boolean_fix_query](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Boolean_fix_query.png)
+![Boolean_fix_query](D:\Vulnerabilities_Tutorial\Practice\Boolean_fix_query.png)
 
 If we try `order by` or `union` statement here will not working because there is no error messages returned.
 
@@ -312,11 +292,11 @@ Let's try to extract user of the database `user()` using `substring(user(),1,1)=
 
 In this query the substring returns the first character of `user()` and compare it with letter `a`, if true, the green message will appear in the response, otherwise the red message will fire.
 
-![Boolean_substring_1](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Boolean_substring_1.png)
+![Boolean_substring_1](D:\Vulnerabilities_Tutorial\Practice\Boolean_substring_1.png)
 
-![Boolean_substring_2](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Boolean_substring_2.png)
+![Boolean_substring_2](D:\Vulnerabilities_Tutorial\Practice\Boolean_substring_2.png)
 
-![Boolean_substring_3](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Boolean_substring_3.png)
+![Boolean_substring_3](D:\Vulnerabilities_Tutorial\Practice\Boolean_substring_3.png)
 
 We can see the first and second characters of `user()` is `bl`. But doing this manually is tough, so, I create a script to automate the process.
 
@@ -360,29 +340,31 @@ for position in range(1, query_length + 1):
 print(f"Extracted query result: {flag}")
 ```
 
+
+
 ## SQL - Error based Challenge
 
 The challenge from [Cyard](https://cyard.0x4148.com/).
 
 The `Error based` challenge has the same UI as `Boolean based` challenge.
 
-![WAF_Challenge_Test](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Error_Based_Challenge.png)
+![WAF_Challenge_Test](D:\Vulnerabilities_Tutorial\Practice\Error_Based_Challenge.png)
 
 So without wasting time let's intercept the request from password reset again and inject single quote.
 
 We can see SQL error in the response which indicates to SQL Injection.
 
-![Error_Based_Challenge_test](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Error_Based_Challenge_test.png)
+![Error_Based_Challenge_test](D:\Vulnerabilities_Tutorial\Practice\Error_Based_Challenge_test.png)
 
 Before trying to exfiltrate data, we need to fix the query to determine how we can exploit it.
 
-![Error_Based_Challenge_test_fix_query](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Error_Based_Challenge_test_fix_query.png)
+![Error_Based_Challenge_test_fix_query](D:\Vulnerabilities_Tutorial\Practice\Error_Based_Challenge_test_fix_query.png)
 
 As we saw in the `error-based` previous challenges, so we will focus on the data returned from SQL function errors not the extracting data directly.
 
 If we use `extractvalue()` or `updatexml()`, response will show us the following error.
 
-![Error_Based_Challenge_waf](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Error_Based_Challenge_waf.png)
+![Error_Based_Challenge_waf](D:\Vulnerabilities_Tutorial\Practice\Error_Based_Challenge_waf.png)
 
 What we can do here?
 
@@ -392,45 +374,42 @@ As the application uses `php`, we can assume that the used database is `MySQL`. 
 
 > I will use `concat('abc', 'xyz')` and the expected value should be returned in the response is `abcxyz`. 
 
-![Error_Based_Challenge_Fuzzing_1](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Error_Based_Challenge_Fuzzing_1.png)
+![Error_Based_Challenge_Fuzzing_1](D:\Vulnerabilities_Tutorial\Practice\Error_Based_Challenge_Fuzzing_1.png)
 
 We can see there are many functions returned status code `200`, but most of them returned the error of the function itself not our expected value, however `BIN_TO_UUID()` function returned the expected value.
 
-![Error_Based_Challenge_Fuzzing_2](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Error_Based_Challenge_Fuzzing_2.png)
+![Error_Based_Challenge_Fuzzing_2](D:\Vulnerabilities_Tutorial\Practice\Error_Based_Challenge_Fuzzing_2.png)
 
 So, let's try to exfiltrate data like previous challenges such as `version()`, `user()`, `database()`.
 
 `version()`:
 
-![Error_Based_Challenge_version](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Error_Based_Challenge_version.png)
+![Error_Based_Challenge_version](D:\Vulnerabilities_Tutorial\Practice\Error_Based_Challenge_version.png)
 
 `user()`:
 
-![Error_Based_Challenge_user](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Error_Based_Challenge_user.png)
+![Error_Based_Challenge_user](D:\Vulnerabilities_Tutorial\Practice\Error_Based_Challenge_user.png)
 
 `database()`:
 
-![Error_Based_Challenge_database](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Error_Based_Challenge_database.png)
+![Error_Based_Challenge_database](D:\Vulnerabilities_Tutorial\Practice\Error_Based_Challenge_database.png)
 
 Extracting tables:
 
-![Error_Based_Challenge_extract_tables](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Error_Based_Challenge_extract_tables.png)
+![Error_Based_Challenge_extract_tables](D:\Vulnerabilities_Tutorial\Practice\Error_Based_Challenge_extract_tables.png)
 
 Extracting columns:
 
-![Error_Based_Challenge_extract_columns_1](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Error_Based_Challenge_extract_columns_1.png)
+![Error_Based_Challenge_extract_columns_1](D:\Vulnerabilities_Tutorial\Practice\Error_Based_Challenge_extract_columns_1.png)
 
-![Error_Based_Challenge_extract_columns_2](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Error_Based_Challenge_extract_columns_2.png)
+![Error_Based_Challenge_extract_columns_2](D:\Vulnerabilities_Tutorial\Practice\Error_Based_Challenge_extract_columns_2.png)
 
-![Error_Based_Challenge_extract_columns_3](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Error_Based_Challenge_extract_columns_3.png)
+![Error_Based_Challenge_extract_columns_3](D:\Vulnerabilities_Tutorial\Practice\Error_Based_Challenge_extract_columns_3.png)
 
 Extract Login Credentials:
 
-![Error_Based_Challenge_extract_creds](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Error_Based_Challenge_extract_creds.png)
+![Error_Based_Challenge_extract_creds](D:\Vulnerabilities_Tutorial\Practice\Error_Based_Challenge_extract_creds.png)
 
 Now, we can login and get the flag.
 
-![Error_Based_Challenge_flag](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Error_Based_Challenge_flag.png)
-
-
-That's all for today. Thanks for reading.
+![Error_Based_Challenge_flag](D:\Vulnerabilities_Tutorial\Practice\Error_Based_Challenge_flag.png)
