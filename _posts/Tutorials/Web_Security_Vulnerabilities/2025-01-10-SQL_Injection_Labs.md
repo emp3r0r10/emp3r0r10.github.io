@@ -14,7 +14,6 @@ toc: false
 <img src="/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Lab/SQL_Labs.png" alt="IDOR" style="zoom:100%;" />
 
 ## Table of Contents
-  - [SQL Injection - LIMS](#sql-injection---lims)
   - [Introduction](#introduction)
   - [Authentication Bypass](#authentication-bypass)
     - [Union-Based SQL Injection](#union-based-sql-injection)
