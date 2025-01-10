@@ -428,9 +428,4 @@ Extract Login Credentials:
 
 ![Error_Based_Challenge_extract_creds](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Error_Based_Challenge_extract_creds.png)
 
-Now, we can login and get the flag.
-
-![Error_Based_Challenge_flag](/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/Error_Based_Challenge_flag.png)
-
-
 That's all for today. Thanks for reading.
