@@ -13,6 +13,18 @@ toc: false
 
 <img src="/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Lab/SQL_Labs.png" alt="IDOR" style="zoom:100%;" />
 
+## Table of Contents
+  - [SQL Injection - LIMS](#sql-injection---lims)
+    - [Introduction](#introduction)
+    - [Authentication Bypass](#authentication-bypass)
+      - [Union-Based SQL Injection](#union-based-sql-injection)
+      - [Error-Based SQL Injection](#error-based-sql-injection)
+    - [Admin Portal](#admin-portal)
+      - [Union-Based SQL Injection](#union-based-sql-injection-1)
+      - [Error-Based SQL Injection](#error-based-sql-injection-1)
+    - [Blind Boolean-Based SQL Injection Challenge](#blind-boolean-based-sql-injection-challenge)
+    - [SQL Injection: WAF Evasion](#sql-injection-waf-evasion)
+
 ## Introduction
 
 Hello, in this writeup, I will talk about how to find and exploit SQL Injection in `lims` app provided by [Cyard](https://cyard.0x4148.com/). The Challenge involves `Login` page. The objective is to bypass authentication and dump data from different places the whole app.
@@ -71,7 +83,7 @@ If the application checks password returned from user and compare it with the pa
 select password from users where username='$user' and password='$pass';
 -- then compare the password with the one in the database.
 /* if (password == $row[password]) {
-	header('Location: dashboard.php');
+    header('Location: dashboard.php');
 } */
 ....
 ```
