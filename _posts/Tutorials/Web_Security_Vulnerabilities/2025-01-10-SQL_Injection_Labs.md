@@ -15,15 +15,15 @@ toc: false
 
 ## Table of Contents
   - [SQL Injection - LIMS](#sql-injection---lims)
-    - [Introduction](#introduction)
-    - [Authentication Bypass](#authentication-bypass)
-      - [Union-Based SQL Injection](#union-based-sql-injection)
-      - [Error-Based SQL Injection](#error-based-sql-injection)
-    - [Admin Portal](#admin-portal)
-      - [Union-Based SQL Injection](#union-based-sql-injection-1)
-      - [Error-Based SQL Injection](#error-based-sql-injection-1)
-    - [Blind Boolean-Based SQL Injection Challenge](#blind-boolean-based-sql-injection-challenge)
-    - [SQL Injection: WAF Evasion](#sql-injection-waf-evasion)
+  - [Introduction](#introduction)
+  - [Authentication Bypass](#authentication-bypass)
+    - [Union-Based SQL Injection](#union-based-sql-injection)
+    - [Error-Based SQL Injection](#error-based-sql-injection)
+  - [Admin Portal](#admin-portal)
+    - [Union-Based SQL Injection](#union-based-sql-injection-1)
+    - [Error-Based SQL Injection](#error-based-sql-injection-1)
+  - [Blind Boolean-Based SQL Injection Challenge](#blind-boolean-based-sql-injection-challenge)
+  - [SQL Injection: WAF Evasion](#sql-injection-waf-evasion)
 
 ## Introduction
 
