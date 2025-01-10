@@ -22,7 +22,7 @@ toc: false
     - [Union-Based SQL Injection](#union-based-sql-injection-1)
     - [Error-Based SQL Injection](#error-based-sql-injection-1)
   - [Blind Boolean-Based SQL Injection Challenge](#blind-boolean-based-sql-injection-challenge)
-  - [SQL - Error based Challenge](#sql-error-based-challenge)
+  - [SQL - Error based Challenge](#sql---error-based-challenge)
 
 ## Introduction
 
