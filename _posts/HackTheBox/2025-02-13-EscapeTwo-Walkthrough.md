@@ -1,5 +1,5 @@
 ---
-title: "Drive Machine Writeup"
+title: "EscapeTwo Machine Writeup"
 classes: wide
 header:
   teaser: /assets/images/hackthebox/EscapeTwo-Writeup/EscapeTwo.png
