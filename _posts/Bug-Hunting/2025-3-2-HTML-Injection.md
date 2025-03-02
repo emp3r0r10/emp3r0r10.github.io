@@ -2,15 +2,13 @@
 title: "My First Bug - HTML Injection"
 classes: wide
 header:
-  teaser: /assets/images/bug-hunting/HTML_Injection/Hackerone_Report.png
+  teaser: /assets/images/bug-hunting/HTML_Injection/Writeup_Cover.png
 ribbon: red
 description: "I found an HTML Injection in the comment section of the blog posts on the `sub.redacted.com` website that allows me to inject unintended texts, links, and images."
 categories:
   - Bug-Hunting
 toc: false
 ---
-
-# My First Bug Bounty - HTML Injection
 
 Hello hunters, It's `Abdelrahman Elshinbary` known as `emp3r0r10` and this is my first writeup in the bug bounty community that I found in a `Vulnerability Disclosure Program (VDP)`. Let's call it `redacted.com`.
 
