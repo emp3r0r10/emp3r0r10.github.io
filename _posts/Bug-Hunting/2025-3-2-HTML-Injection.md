@@ -67,17 +67,17 @@ After further enumeration on this subdomain, I found a directory called `/blog` 
 
 I started to test it against HTML Injection and injecting `<h1>Great</h1>`, to my surprise the payload is executed successfully.
 
-![HTML_Code](/assets/images/bug-hunting/HTML_Injection/HTML_Injection_developer_blogs.png
+![HTML_Code](/assets/images/bug-hunting/HTML_Injection/HTML_Code.png)
 
 
 
-![HTML_Injection](/assets/images/bug-hunting/HTML_Injection/HTML_Injection_developer_blogs.png)
+![HTML_Injection](/assets/images/bug-hunting/HTML_Injection/HTML_Injection.png)
 
 So, I reported it to the company and they validated my report as `P3` bug.
 
 
 
-![Hackerone_Report](/assets/images/bug-hunting/HTML_Injection/HTML_Injection_developer_blogs.png)
+![Hackerone_Report](/assets/images/bug-hunting/HTML_Injection/Hackerone_Report.png)
 
 It is just a beginning. Hope you enjoyed this writeup.
 
