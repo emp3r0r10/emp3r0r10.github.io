@@ -72,7 +72,7 @@ Let's explore what each port used for quickly and do basic enumeration of it.
 
    > DNS zone transfer (AXFR) can leak entire domain zone information, including subdomains, services, and IP addresses 
 
-​  Command: `dig axfr 10.10.11.51 sequel.htb`
+  Command: `dig axfr 10.10.11.51 sequel.htb`
 
 2. **Banner Grabbing**
 
@@ -420,20 +420,22 @@ Finally let's login as `Administrator` and NTLM hash and read `root.txt` file.
 
 ## Resources
 
-https://www.hackingarticles.in/abusing-ad-dacl-writeowner/
+1. https://www.hackingarticles.in/abusing-ad-dacl-writeowner/
 
-https://www.thehacker.recipes/ad/movement/dacl/grant-rights
+2. https://www.thehacker.recipes/ad/movement/dacl/grant-rights
 
-https://medium.com/@aslam.mahimkar/exploiting-ad-dacl-writeowner-misconfiguration-ca61fb2fcee1
+3. https://medium.com/@aslam.mahimkar/exploiting-ad-dacl-writeowner-misconfiguration-ca61fb2fcee1
 
-https://github.com/fortra/impacket
+4. https://github.com/fortra/impacket
 
-https://decoder.cloud/2023/11/20/a-deep-dive-in-cert-publishers-group/
+5. https://decoder.cloud/2023/11/20/a-deep-dive-in-cert-publishers-group/
 
-https://www.thehacker.recipes/ad/movement/adcs/
+6. https://www.thehacker.recipes/ad/movement/adcs/
 
-https://redfoxsec.com/blog/exploiting-weak-acls-on-active-directory-certificate-templates-esc4/
+7. https://redfoxsec.com/blog/exploiting-weak-acls-on-active-directory-certificate-templates-esc4/
 
-
+8. https://www.blackhillsinfosec.com/abusing-active-directory-certificate-services-part-one/
+9. https://www.blackhillsinfosec.com/abusing-active-directory-certificate-services-part-2/
+10. https://book.hacktricks.wiki/en/windows-hardening/active-directory-methodology/ad-certificates/domain-escalation.html
 
 Hope you found this writeup useful and enjoyable. Thanks for reading.
