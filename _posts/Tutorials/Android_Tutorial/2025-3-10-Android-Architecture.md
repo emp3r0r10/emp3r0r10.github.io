@@ -1,10 +1,10 @@
 ---
-title: "Web Security Vulnerabilities - Cross Site Scripting (XSS)"
+title: "Android Architecture"
 classes: wide
 header:
-  teaser: /assets/images/tutorials/Web_Security_Vulnerabilities/XSS/XSS-Cover.png
+  teaser: /assets/images/tutorials/Android_Tutorial/Android_Architecture/Android_Architecture.png
 ribbon: red
-description: "Cross-Site Scripting, also known as XSS, is a web security vulnerability that allows attackers to inject malicious scripts into web pages viewed by other users. These scripts typically execute in the victim’s browser, leading to security breaches like account compromise, data theft, or website defacement."
+description: "System Apps or Application Layer is a top layer of android architecture. It contains all apps on the device. These applications rely on the services and frameworks (**next layers**)."
 categories:
   - Tutorials
 toc: false
