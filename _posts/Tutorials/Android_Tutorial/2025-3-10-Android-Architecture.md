@@ -2,7 +2,7 @@
 title: "Android Architecture"
 classes: wide
 header:
-  teaser: /assets/images/tutorials/Android_Tutorial/Android_Architecture/Android_Architecture.png
+  teaser: /assets/images/tutorials/Android_Tutorial/Android_Architecture/Android_Architecture_Cover.png
 ribbon: red
 description: "System Apps or Application Layer is a top layer of android architecture. It contains all apps on the device. These applications rely on the services and frameworks (**next layers**)."
 categories:
