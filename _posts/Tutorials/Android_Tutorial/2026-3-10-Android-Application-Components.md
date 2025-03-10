@@ -1,10 +1,10 @@
 ---
-title: "Android Architecture"
+title: "Android Components"
 classes: wide
 header:
   teaser: /assets/images/tutorials/Android_Tutorial/Android_Components/Android_Components_Cover.png
 ribbon: red
-description: "System Apps or Application Layer is a top layer of android architecture. It contains all apps on the device. These applications rely on the services and frameworks (**next layers**)."
+description: "Android Application Components are essential building blocks of an android application. They are defined in `AndroidManifest.xml` file. They work all together to build a functional application. Each component has lifecycle and role."
 categories:
   - Tutorials
 toc: false
