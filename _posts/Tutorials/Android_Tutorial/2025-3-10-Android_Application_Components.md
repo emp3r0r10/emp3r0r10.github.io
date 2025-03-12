@@ -171,7 +171,7 @@ class Service : Service() {
 
 `AndroidManifest.xml`
 
-```Kotlin
+```XML
 <service android:name=".Service" />
 ```
 
@@ -216,9 +216,6 @@ class MainActivity : AppCompatActivity() {
     }
 }
 ```
-
-
-
 
 
 ![Service_1](/assets/images/tutorials/Android_Tutorial/Android_Components/Service_1.png)
