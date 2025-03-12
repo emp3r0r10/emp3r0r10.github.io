@@ -179,7 +179,6 @@ class Service : Service() {
 
 ```Kotlin
 package com.example.application_2
-
 import android.content.Intent
 import android.content.IntentFilter
 import android.net.wifi.WifiManager
