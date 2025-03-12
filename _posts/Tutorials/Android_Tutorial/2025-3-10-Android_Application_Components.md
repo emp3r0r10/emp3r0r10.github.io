@@ -567,7 +567,7 @@ An Intent Filter is a declaration in the `AndroidManifest.xml` file that specifi
    - Example (Intent Filter in Browser Apps like Chrome, Firefox, etc.)
 
      ```XML
-     xmlCopyEdit<activity android:name=".BrowserActivity">
+     <activity android:name=".BrowserActivity">
          <intent-filter>
              <action android:name="android.intent.action.VIEW" />
              <category android:name="android.intent.category.BROWSABLE" />
