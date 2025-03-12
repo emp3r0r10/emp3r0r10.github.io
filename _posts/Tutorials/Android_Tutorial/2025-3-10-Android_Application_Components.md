@@ -40,7 +40,7 @@ toc: false
     - [Example of Intent Filters](#example-of-intent-filters)
       - [Handling a Web URL](#handling-a-web-url)
       - [Sharing Text](#sharing-text)
-  - [Whole Example of Intents and Intent Filters](#whole-example-of-intents-and-intent-filters)
+  - [Example of Intents and Intent Filters](#example-of-intents-and-intent-filters)
     - [Scenario](#scenario)
     - [How It Works](#how-it-works)
 
