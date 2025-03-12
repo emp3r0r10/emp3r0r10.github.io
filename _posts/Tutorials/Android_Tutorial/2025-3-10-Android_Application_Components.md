@@ -12,46 +12,37 @@ toc: false
 
 <img src="/assets/images/tutorials/Android_Tutorial/Android_Components/Android_Components.png" alt="Android_Architecture" style="zoom: 100%;" />
 
-![Android_Components](/assets/images/tutorials/Android_Tutorial/Android_Components/Android_Components.png)
-
-# Android Application Components
-
-## Activities
-- **Types of Activity**
-- **Life Cycle of Activity**
-- **Implementation of Activity**
-
-## Services
-- **Types of Services**
-- **Life Cycle of Service**
-- **Implementation of Service**
-
-## Broadcast Receivers
-- **Types of Broadcast**
-- **Types of Broadcast Receiver**
-- **Use Cases for Broadcast Receivers**
-- **Implementation of Static Broadcast Receiver**
-
-## Content Provider
-- **Key Concepts**
-- **Life Cycle of Content Provider**
-- **Implementation of Content Provider**
-
-## Intents
-- **Types of Intents**
-- **Use Cases of Intents**
-
-## Intent Filters
-- **Intent Filter Attributes**
-- **How Intent Filters Work**
-- **Example of Intent Filters**
-  1. Handling a Web URL
-  2. Sharing Text
-
-## Whole Example of Intents and Intent Filters
-- **Scenario**
-- **How It Works**
-
+## Table of Contents
+- [Android Application Components](#android-application-components)
+  - [Activities](#activities)
+    - [Types of Activity](#types-of-activity)
+    - [Life Cycle of Activity](#life-cycle-of-activity)
+    - [Implementation of Activity](#implementation-of-activity)
+  - [Services](#services)
+    - [Types of Services](#types-of-services)
+    - [Life Cycle of Service](#life-cycle-of-service)
+    - [Implementation of Service](#implementation-of-service)
+  - [Broadcast Receivers](#broadcast-receivers)
+    - [Types of Broadcast](#types-of-broadcast)
+    - [Types of Broadcast Receiver](#types-of-broadcast-receiver)
+    - [Use Cases for Broadcast Receivers](#use-cases-for-broadcast-receivers)
+    - [Implementation of Static Broadcast Receiver](#implementation-of-static-broadcast-receiver)
+  - [Content Provider](#content-provider)
+    - [Key Concepts](#key-concepts)
+    - [Life Cycle of Content Provider](#life-cycle-of-content-provider)
+    - [Implementation of Content Provider](#implementation-of-content-provider)
+  - [Intents](#intents)
+    - [Types of Intents](#types-of-intents)
+    - [Use Cases of Intents](#use-cases-of-intents)
+  - [Intent Filters](#intent-filters)
+    - [Intent Filter Attributes](#intent-filter-attributes)
+    - [How Intent Filters Work](#how-intent-filters-work)
+    - [Example of Intent Filters](#example-of-intent-filters)
+      - [Handling a Web URL](#handling-a-web-url)
+      - [Sharing Text](#sharing-text)
+  - [Whole Example of Intents and Intent Filters](#whole-example-of-intents-and-intent-filters)
+    - [Scenario](#scenario)
+    - [How It Works](#how-it-works)
 
 Android Application Components are essential building blocks of an android application. They are defined in `AndroidManifest.xml` file. They work all together to build a functional application. Each component has lifecycle and role.
 
