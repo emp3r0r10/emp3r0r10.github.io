@@ -40,7 +40,7 @@ toc: false
     - [Example of Intent Filters](#example-of-intent-filters)
       - [Handling a Web URL](#handling-a-web-url)
       - [Sharing Text](#sharing-text)
-  - [Whole Example of Intents and Intent Filters](#whole-example-of-intents-and-intent-filters)
+  - [Example of Intents and Intent Filters](#example-of-intents-and-intent-filters)
     - [Scenario](#scenario)
     - [How It Works](#how-it-works)
 
@@ -140,7 +140,7 @@ Services is running in the background to perform long-running operations without
 
 `Service.kt`
 
-```Kotlin
+```kotlin
 package com.example.application_2
 
 import android.app.Service
@@ -171,15 +171,14 @@ class Service : Service() {
 
 `AndroidManifest.xml`
 
-```Kotlin
+```XML
 <service android:name=".Service" />
 ```
 
 `MainActivity.kt`
 
-```Kotlin
+```kotlin
 package com.example.application_2
-
 import android.content.Intent
 import android.content.IntentFilter
 import android.net.wifi.WifiManager
@@ -217,9 +216,6 @@ class MainActivity : AppCompatActivity() {
     }
 }
 ```
-
-
-
 
 
 ![Service_1](/assets/images/tutorials/Android_Tutorial/Android_Components/Service_1.png)
@@ -394,15 +390,15 @@ Content Provider is a component in Android that manages access to a structured s
 
 ## Intents
 
-**Intents and Intent Filters are** fundamental components in Android that enable communication between different components (e.g., activities, services, broadcast receivers) and even between different applications.
+Intents and Intent Filters are fundamental components in Android that enable communication between different components (e.g., activities, services, broadcast receivers) and even between different applications.
 
-**Intent** is a messaging object used to request an action from another component or application. It acts as a bridge that helps in passing data or instructions between components (e.g., Activity, Service, BroadcastReceiver).
+Intent is a messaging object used to request an action from another component or application. It acts as a bridge that helps in passing data or instructions between components (e.g., Activity, Service, BroadcastReceiver).
 
 ### Types of Intents
 
 1. **Implicit Intents**
 
-   Doesn’t specify the component. The system determines which component can handle the request based on the **Intent Filters** declared in the manifest.
+   Doesn’t specify the component. but instead the system determines which component can handle the request based on the **Intent Filters** declared in the manifest.
 
    Code Example:
 
@@ -418,7 +414,7 @@ Content Provider is a component in Android that manages access to a structured s
    
    Code Example:
    
-   ```Kotlin
+   ```kotlin
    Intent intent = new Intent(MainActivity.this, SecondActivity.class);
    intent.putExtra("message", "Hello from MainActivity");
    startActivity(intent);
@@ -433,19 +429,28 @@ Content Provider is a component in Android that manages access to a structured s
 
 ## Intent Filters
 
-An **Intent Filter** is a declaration in the `AndroidManifest.xml` file that specifies the types of intents a component (e.g., activity, service, broadcast receiver) can handle. It allows a component to receive implicit intents.
+An Intent Filter is a declaration in the `AndroidManifest.xml` file that specifies the types of intents a component (e.g., activity, service, broadcast receiver) can handle. It allows a component to receive implicit intents. Components register Intent Filters in the manifest to indicate the actions they can handle.
 
 ### Intent Filter Attributes
 
 1. **Action:** Describes the operation to be performed (`android.intent.action.VIEW`).
+
+   **common action:**
+
+   - `ACTION_VIEW`: Use this action in intent with startActivity() when you have some information that activity can show to the user like showing an image in a gallery app or  an address to view in a map app
+   - `ACTION_SEND`: You should use this in intent with startActivity() when you have some data that the user can share through another app, such as an email app or social sharing app.
 2. **Data:** Specifies the type of data the component can handle (`http://`, `content://`).
 3. **Category:** Adds additional information about the component that can handle the intent (`android.intent.category.DEFAULT`).
+
+   **common categories:**
+
+   - `CATEGORY_BROWSABLE`: The target activity allows itself to be started by a web browser to display data referenced by a link.
 
 ### How Intent Filters Work
 
 1. Declare Intent Filters:
 
-   - Add `<intent-filter>` tags to the component in the manifest.
+   - Add `<intent-filter>` tags to the component in the manifest file.
 
 2. Match Intents:
 
@@ -490,97 +495,97 @@ An **Intent Filter** is a declaration in the `AndroidManifest.xml` file that spe
 
 - When another app sends an implicit intent to share text, this activity will be listed as an option.
 
-## Whole Example of Intents and Intent Filters
+## Example of Intents and Intent Filters
 
-### Scenario
+![Android_Intent_filters](/assets/images/tutorials/Android_Tutorial/Android_Components/Android_Intent_filters.png)
 
-1. A user clicks on a PDF file (e.g., in a file manager or email app).
-2. The system sends an **implicit intent** to open the PDF.
-3. The user is presented with a list of apps that can handle PDF files (e.g., PDF viewers).
-4. The user selects a specific PDF viewer app to open the file.
+### **Scenario**
 
-### How It Works
+1. A user clicks a button in the app to open a website.
+2. The system sends an **implicit intent** to open the URL.
+3. The user is presented with a list of browsers (e.g., Chrome, Firefox, Edge).
+4. The user selects **Google Chrome** to open the website.
+5. The URL is opened in Chrome.
 
-1. **Implicit Intent**
+### **How It Works**
 
-   - When the user clicks on the PDF file, the app (e.g., file manager or email app) creates an **implicit intent** to open the file.
+1. **Implicit Intent (Triggering the URL Opening Action)**
 
+   - When the user clicks the button, the app creates an **implicit intent** to open a webpage.
 
    - The intent includes:
+     - **Action**: `Intent.ACTION_VIEW` (to view the URL).
+     - **Data**: The URL of the website (e.g., `https://www.google.com`).
 
-     - **Action**: `Intent.ACTION_VIEW` (to view the file).
-     - **Data**: The URI of the PDF file (e.g., `content://path/to/file.pdf`).
-     - **Type**: The MIME type of the file (e.g., `application/pdf`).
-
-   - Example Code (Sending the Intent):
+   - Example Code (Sending the Intent from MainActivity.java)
 
      ```java
-     Intent intent = new Intent(Intent.ACTION_VIEW);
-     intent.setDataAndType(Uri.parse("content://path/to/file.pdf"), "application/pdf");
-     startActivity(intent);
-     ```
-
-
-2. **Intent Filter**
-
-   - The PDF viewer app declares an **intent filter** in its `AndroidManifest.xml` to indicate that it can handle PDF files.
-
-
-   - The intent filter specifies:Run HTML
-
-     - **Action**: `Intent.ACTION_VIEW`
-     - **Category**: `Intent.CATEGORY_DEFAULT`
-     - **Data**: MIME type `application/pdf`
-
-
-   - Example Code (Intent Filter in PDF Viewer App):
-
-     ```XML
-     <activity android:name=".PdfViewerActivity"><intent-filter><action android:name="android.intent.action.VIEW" /><category android:name="android.intent.category.DEFAULT" /><data android:mimeType="application/pdf" /></intent-filter></activity>
-     ```
-
-3. **Chooser Dialog**
-
-   - When the implicit intent is sent, the Android system checks all installed apps for components that match the intent filter.
-
-   - If multiple apps can handle the intent (e.g., multiple PDF viewers), the system displays a **chooser dialog** with the available options.
-
-   - The user selects one of the apps (e.g., a PDF viewer) to open the file.
-
-
-4. **Opening the PDF**
-
-   - The selected PDF viewer app receives the intent and opens the PDF file in its `PdfViewerActivity`.
-
-
-   - The app retrieves the PDF file's URI from the intent and displays it.
-
-   - Example Code (Handling the Intent in PDF Viewer App):
-
-     ```java
-     public class PdfViewerActivity extends AppCompatActivity {
+     package com.example.intentsdemo;
+     
+     import android.content.Intent;
+     import android.net.Uri;
+     import android.os.Bundle;
+     import android.view.View;
+     import android.widget.Button;
+     import androidx.appcompat.app.AppCompatActivity;
+     
+     public class MainActivity extends AppCompatActivity {
          @Override
          protected void onCreate(Bundle savedInstanceState) {
              super.onCreate(savedInstanceState);
-             setContentView(R.layout.activity_pdf_viewer);
+             setContentView(R.layout.activity_main);
      
-             // Get the intent that started this activity
-             Intent intent = getIntent();
+             Button openBrowserButton = findViewById(R.id.openBrowserButton);
+             openBrowserButton.setOnClickListener(new View.OnClickListener() {
+                 @Override
+                 public void onClick(View v) {
+                     // Create an implicit intent to open a URL
+                     Intent intent = new Intent(Intent.ACTION_VIEW);
+                     
+                     // Set the website URL
+                     intent.setData(Uri.parse("https://www.google.com"));
      
-             // Check if the intent action is ACTION_VIEW and the type is PDF
-             if (Intent.ACTION_VIEW.equals(intent.getAction()) && intent.getType() != null) {
-                 if ("application/pdf".equals(intent.getType())) {
-                     // Get the PDF file URI from the intent
-                     Uri pdfUri = intent.getData();
-     
-                     // Open and display the PDF file
-                     openPdf(pdfUri);
+                     // Allow the user to choose a browser
+                     startActivity(Intent.createChooser(intent, "Open with"));
                  }
-             }
+             });
          }
-         private void openPdf(Uri pdfUri) {
-             // Code to open and display the PDF file
-             // (e.g., using a PDF rendering library like PDFView)
-         }
-     }
+     }   
      ```
+
+2. **Intent Filter (Declaring Browser App Compatibility)**
+
+   - The browser apps (e.g., Chrome, Firefox) declare an **intent filter** in their `AndroidManifest.xml` file.
+
+   - This lets the system know that they can handle web URLs.
+
+   - The intent filter specifies:
+     - **Action**: `Intent.ACTION_VIEW`
+     - **Category**: `Intent.CATEGORY_BROWSABLE` (so it appears in the browser selection list).
+     - **Data**: Scheme `http` and `https` (to handle web links).
+
+   - Example (Intent Filter in Browser Apps like Chrome, Firefox, etc.)
+
+     ```xml
+     <activity android:name=".BrowserActivity">
+         <intent-filter>
+             <action android:name="android.intent.action.VIEW" />
+             <category android:name="android.intent.category.BROWSABLE" />
+             <data android:scheme="http" />
+             <data android:scheme="https" />
+         </intent-filter>
+     </activity>
+     ```
+3. **Chooser Dialog (Allowing the User to Select a Browser)**
+
+   - When the intent is sent, Android checks for apps that match the intent filter.
+
+   - If multiple apps (e.g., Chrome, Firefox, Edge) can handle the request, a **chooser dialog** appears.
+
+   - The user selects **Google Chrome**.
+
+4. **Opening the URL in Chrome**
+
+   - Once the user selects Chrome, it receives the **intent** with the URL data.
+
+   - Chrome opens the website using its internal web rendering engine.
