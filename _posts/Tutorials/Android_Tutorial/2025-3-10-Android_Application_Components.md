@@ -140,7 +140,7 @@ Services is running in the background to perform long-running operations without
 
 `Service.kt`
 
-```Kotlin
+```kotlin
 package com.example.application_2
 
 import android.app.Service
@@ -177,7 +177,7 @@ class Service : Service() {
 
 `MainActivity.kt`
 
-```Kotlin
+```kotlin
 package com.example.application_2
 import android.content.Intent
 import android.content.IntentFilter
@@ -414,7 +414,7 @@ Intent is a messaging object used to request an action from another component or
    
    Code Example:
    
-   ```Kotlin
+   ```kotlin
    Intent intent = new Intent(MainActivity.this, SecondActivity.class);
    intent.putExtra("message", "Hello from MainActivity");
    startActivity(intent);
@@ -566,7 +566,7 @@ An Intent Filter is a declaration in the `AndroidManifest.xml` file that specifi
 
    - Example (Intent Filter in Browser Apps like Chrome, Firefox, etc.)
 
-     ```XML
+     ```xml
      <activity android:name=".BrowserActivity">
          <intent-filter>
              <action android:name="android.intent.action.VIEW" />
