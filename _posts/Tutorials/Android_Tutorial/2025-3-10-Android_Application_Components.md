@@ -578,7 +578,7 @@ An Intent Filter is a declaration in the `AndroidManifest.xml` file that specifi
              <data android:scheme="https" />
          </intent-filter>
      </activity>
-
+     ```
 3. **Chooser Dialog (Allowing the User to Select a Browser)**
 
    - When the intent is sent, Android checks for apps that match the intent filter.
