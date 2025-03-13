@@ -1,5 +1,5 @@
 ---
-title: "Android File & APK Structure"
+title: "Android APK & File Structure"
 classes: wide
 header:
   teaser: /assets/images/tutorials/Android_Tutorial/APK&File_Structure/APK_Structure_Cover.png
