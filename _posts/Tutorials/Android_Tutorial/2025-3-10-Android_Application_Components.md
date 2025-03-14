@@ -2,7 +2,7 @@
 title: "Android Components"
 classes: wide
 header:
-  teaser: /assets/images/tutorials/Android_Tutorial/Android_Components/Android_Components_Cover.png
+  teaser: /assets/images/tutorials/Android_Tutorial/Android_Components/Android_Components_Cover.jpeg
 ribbon: red
 description: "Android Application Components are essential building blocks of an android application. They are defined in `AndroidManifest.xml` file. They work all together to build a functional application. Each component has lifecycle and role."
 categories:
@@ -10,7 +10,7 @@ categories:
 toc: false
 ---
 
-<img src="/assets/images/tutorials/Android_Tutorial/Android_Components/Android_Components.png" alt="Android_Architecture" style="zoom: 100%;" />
+<img src="/assets/images/tutorials/Android_Tutorial/Android_Components/Android_Components_Cover.jpeg" alt="Android_Architecture" style="zoom: 100%;" />
 
 ## Table of Contents
 - [Android Application Components](#android-application-components)
