@@ -1,5 +1,5 @@
 ---
-title: "Android Components"
+title: "Android Vulnerabilities"
 classes: wide
 header:
   teaser: /assets/images/tutorials/Android_Tutorial/Android_Vulnerabilities/Android_Vulnerabilities.jpeg
@@ -10,7 +10,7 @@ categories:
 toc: false
 ---
 
-<img src="/assets/images/tutorials/Android_Tutorial/Android_Vulnerabilities/Android_Vulnerabilities.png" alt="Android_Architecture" style="zoom: 100%;" />
+<img src="/assets/images/tutorials/Android_Tutorial/Android_Vulnerabilities/Android_Vulnerabilities.jpeg" alt="Android_Architecture" style="zoom: 100%;" />
 
 ## **1- Improper Credential Usage**
 
