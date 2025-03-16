@@ -439,7 +439,7 @@
   }
 
   .active {
-    margin-left: 10em;
+    margin-left: -0.5em;
     padding-left: 0.5em;
     padding-right: 0.5em;
     font-weight: bold;
@@ -483,7 +483,7 @@
 
 .nav__sub-title {
   display: block;
-  margin: 0.5rem 0;
+  margin: 10rem 0;
   padding: 0.25rem 0;
   font-family: $sans-serif-narrow;
   font-size: $type-size-6;
