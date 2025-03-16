@@ -11,7 +11,7 @@ categories:
 toc: false
 ---
 
-Hello, This my first CTF writeup (CAT Reloaded CTF). In this writeup I will explain how I get the flag for 6 web challenges.
+Hello, This my first CTF (**CAT Reloaded CTF 2025**). In this writeup I will explain how I get the flag for 6 web challenges.
 
 Let's get started.
 
