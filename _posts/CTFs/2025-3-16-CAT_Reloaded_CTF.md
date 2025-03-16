@@ -11,6 +11,8 @@ categories:
 toc: false
 ---
 
+<img src="/assets/images/ctfs/CAT_Reloaded_CTF/CAT_Reloaded_Cover.png" alt="CAT_Reloaded_CTF" style="zoom:100%;" >
+
 Hello, This my first CTF (**CAT Reloaded CTF 2025**). In this writeup I will explain how I get the flag for 6 web challenges.
 
 Let's get started.
