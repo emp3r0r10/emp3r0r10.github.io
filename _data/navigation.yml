@@ -1,7 +1,9 @@
 # main links
 main:
-  - title: "HackTheBox Writeups"
-    url: /categories/#hackthebox-writeups
+  - title: "HackTheBox Walkthroughs"
+    url: /categories/#hackthebox-walkthroughs
+  - title: "CTF Writeups"
+    url: /categories/#ctf-writeups
   - title: "Bug Hunting Writeups"
     url: /categories/#bug-hunting-writeups
   - title: "Tutorials"
