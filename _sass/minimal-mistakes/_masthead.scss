@@ -85,8 +85,10 @@
   display: block;
   list-style-type: none;
   white-space: nowrap;
+  padding-left: 2em
+
   &--lg {
-    padding-right: 10rem;
+    padding-right: 2em;
     font-weight: 700;
   }
 }
