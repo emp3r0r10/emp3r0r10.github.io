@@ -1,48 +1,8 @@
----
-title: "Android Components"
-classes: wide
-header:
-  teaser: /assets/images/tutorials/Android_Tutorial/Android_Components/Android_Components_Cover.jpeg
-ribbon: green
-description: "Android Application Components are essential building blocks of an android application. They are defined in `AndroidManifest.xml` file. They work all together to build a functional application. Each component has lifecycle and role."
-categories:
-  - Tutorials
-toc: false
----
+# Android Application Components
 
-<img src="/assets/images/tutorials/Android_Tutorial/Android_Components/Android_Components_Cover.jpeg" alt="Android_Architecture" style="zoom: 100%;" />
+![Android_Components](D:\Android_Tutorials\Android_Components.png)
 
-## Table of Contents
-- [Android Application Components](#android-application-components)
-  - [Activities](#activities)
-    - [Types of Activity](#types-of-activity)
-    - [Life Cycle of Activity](#life-cycle-of-activity)
-    - [Implementation of Activity](#implementation-of-activity)
-  - [Services](#services)
-    - [Types of Services](#types-of-services)
-    - [Life Cycle of Service](#life-cycle-of-service)
-    - [Implementation of Service](#implementation-of-service)
-  - [Broadcast Receivers](#broadcast-receivers)
-    - [Types of Broadcast](#types-of-broadcast)
-    - [Types of Broadcast Receiver](#types-of-broadcast-receiver)
-    - [Use Cases for Broadcast Receivers](#use-cases-for-broadcast-receivers)
-    - [Implementation of Static Broadcast Receiver](#implementation-of-static-broadcast-receiver)
-  - [Content Provider](#content-provider)
-    - [Key Concepts](#key-concepts)
-    - [Life Cycle of Content Provider](#life-cycle-of-content-provider)
-    - [Implementation of Content Provider](#implementation-of-content-provider)
-  - [Intents](#intents)
-    - [Types of Intents](#types-of-intents)
-    - [Use Cases of Intents](#use-cases-of-intents)
-  - [Intent Filters](#intent-filters)
-    - [Intent Filter Attributes](#intent-filter-attributes)
-    - [How Intent Filters Work](#how-intent-filters-work)
-    - [Example of Intent Filters](#example-of-intent-filters)
-      - [Handling a Web URL](#handling-a-web-url)
-      - [Sharing Text](#sharing-text)
-  - [Example of Intents and Intent Filters](#example-of-intents-and-intent-filters)
-    - [Scenario](#scenario)
-    - [How It Works](#how-it-works)
+[TOC]
 
 Android Application Components are essential building blocks of an android application. They are defined in `AndroidManifest.xml` file. They work all together to build a functional application. Each component has lifecycle and role.
 
@@ -109,7 +69,7 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-![Android_Activity](/assets/images/tutorials/Android_Tutorial/Android_Components/Android_Activity.png)
+![Android_Activity](D:\Android_Tutorials\Android_Activity.png)
 
 > **Toast** provides simple feedback about an operation in a small popup. It only fills the amount of space required for the message and the current activity remains visible and interactive. Toasts automatically disappear after a timeout.
 
@@ -140,7 +100,7 @@ Services is running in the background to perform long-running operations without
 
 `Service.kt`
 
-```kotlin
+```Kotlin
 package com.example.application_2
 
 import android.app.Service
@@ -171,14 +131,15 @@ class Service : Service() {
 
 `AndroidManifest.xml`
 
-```XML
+```Kotlin
 <service android:name=".Service" />
 ```
 
 `MainActivity.kt`
 
-```kotlin
+```Kotlin
 package com.example.application_2
+
 import android.content.Intent
 import android.content.IntentFilter
 import android.net.wifi.WifiManager
@@ -218,9 +179,12 @@ class MainActivity : AppCompatActivity() {
 ```
 
 
-![Service_1](/assets/images/tutorials/Android_Tutorial/Android_Components/Service_1.png)
 
-![Service_2](/assets/images/tutorials/Android_Tutorial/Android_Components/Service_2.png)
+
+
+![Service_1](D:\Android_Tutorials\Service_1.png)
+
+![Service_2](D:\Android_Tutorials\Service_2.png)
 
 ## Broadcast receivers
 
@@ -335,9 +299,9 @@ class MainActivity : AppCompatActivity() {
 </receiver>
 ```
 
-![Broadcast_1](/assets/images/tutorials/Android_Tutorial/Android_Components/Broadcast_1.png)
+![Broadcast_1](D:\Android_Tutorials\Broadcast_1.png)
 
-![Broadcast_2](/assets/images/tutorials/Android_Tutorial/Android_Components/Broadcast_2.png)
+![Broadcast_2](D:\Android_Tutorials\Broadcast_2.png)
 
 ## Content Provider
 
@@ -414,7 +378,7 @@ Intent is a messaging object used to request an action from another component or
    
    Code Example:
    
-   ```kotlin
+   ```Kotlin
    Intent intent = new Intent(MainActivity.this, SecondActivity.class);
    intent.putExtra("message", "Hello from MainActivity");
    startActivity(intent);
@@ -497,7 +461,7 @@ An Intent Filter is a declaration in the `AndroidManifest.xml` file that specifi
 
 ## Example of Intents and Intent Filters
 
-![Android_Intent_filters](/assets/images/tutorials/Android_Tutorial/Android_Components/Android_Intent_filters.png)
+![Android_Intent_filters](D:\Android_Tutorials\Android_Intent_filters.png)
 
 ### **Scenario**
 
@@ -566,8 +530,8 @@ An Intent Filter is a declaration in the `AndroidManifest.xml` file that specifi
 
    - Example (Intent Filter in Browser Apps like Chrome, Firefox, etc.)
 
-     ```xml
-     <activity android:name=".BrowserActivity">
+     ```XML
+     xmlCopyEdit<activity android:name=".BrowserActivity">
          <intent-filter>
              <action android:name="android.intent.action.VIEW" />
              <category android:name="android.intent.category.BROWSABLE" />
@@ -575,7 +539,7 @@ An Intent Filter is a declaration in the `AndroidManifest.xml` file that specifi
              <data android:scheme="https" />
          </intent-filter>
      </activity>
-     ```
+
 3. **Chooser Dialog (Allowing the User to Select a Browser)**
 
    - When the intent is sent, Android checks for apps that match the intent filter.
