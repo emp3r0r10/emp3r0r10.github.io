@@ -3,7 +3,7 @@ title: "SIEM Tutorial - Part 1"
 classes: wide
 header:
   teaser: /assets/images/tutorials/SIEM_Tutorial/Part_1/SIEM.png
-ribbon: red
+ribbon: green
 description: "Hello everyone, today I'm going to share with you a series of tutorials about SIEM solutions. Tutorial consists of three parts."
 categories:
   - Tutorials

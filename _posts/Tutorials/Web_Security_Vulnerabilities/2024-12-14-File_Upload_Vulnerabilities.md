@@ -3,7 +3,7 @@ title: "Web Security Vulnerabilities - File Upload Vulnerabilities"
 classes: wide
 header:
   teaser: /assets/images/tutorials/Web_Security_Vulnerabilities/File_Upload/File-Upload-Cover.png
-ribbon: red
+ribbon: green
 description: "File upload vulnerabilities arise when an application allows users to upload files to its system without properly sanitizing or validating the file type, filename, size, or content. Attackers can manipulate this functionality to upload malicious files, which can then be executed to compromise the server or the data stored on it."
 categories:
   - Tutorials

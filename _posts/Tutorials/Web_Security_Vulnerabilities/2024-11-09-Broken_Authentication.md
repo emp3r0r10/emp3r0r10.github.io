@@ -3,7 +3,7 @@ title: "Web Security Vulnerabilities - Broken Authentication"
 classes: wide
 header:
   teaser: /assets/images/tutorials/Web_Security_Vulnerabilities/Broken_Authentication/Broken-Authentication-Cover.png
-ribbon: red
+ribbon: green
 description: "Authentication is the process of verifying the identity of a user. It ensures that the person or system interacting with a service is who they claim to be."
 categories:
   - Tutorials

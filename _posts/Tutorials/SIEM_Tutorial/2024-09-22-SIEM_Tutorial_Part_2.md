@@ -3,7 +3,7 @@ title: "SIEM Tutorial - Part 2"
 classes: wide
 header:
   teaser: /assets/images/tutorials/SIEM_Tutorial/Part_2/Splunk.png
-ribbon: red
+ribbon: green
 description: "Hello security analysts, today I'm back with the second part of the SIEM tutorial. In the first part, we discussed logs and events, understanding log monitoring and analysis, how to perform it, and we took a look at what SIEM is along with its benefits and solutions."
 categories:
   - Tutorials

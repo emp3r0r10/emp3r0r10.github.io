@@ -3,7 +3,7 @@ title: "Web Security Vulnerabilities - SQL Injection"
 classes: wide
 header:
   teaser: /assets/images/tutorials/Web_Security_Vulnerabilities/SQLI/SQL-Injection-Cover.png
-ribbon: red
+ribbon: green
 description: "SQL Injection, also known as SQLI, is a web security vulnerability that allows an attacker to inject malicious queries to manipulate a database. This can result in unauthorized access to sensitive data that should not be available to unauthorized users."
 categories:
   - Tutorials
