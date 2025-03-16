@@ -3,7 +3,7 @@ title: "Android APK & File Structure"
 classes: wide
 header:
   teaser: /assets/images/tutorials/Android_Tutorial/APK&File_Structure/APK_Structure_Cover.jpeg
-ribbon: red
+ribbon: green
 description: "APK file (`Android Package Kit`) is an archive file with `.apk` format that contains all files and components required to build an android application. You can extract files and codes from APK file by unzipping the file."
 categories:
   - Tutorials

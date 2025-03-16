@@ -3,7 +3,7 @@ title: "SQL Injection - Cyard Challenges"
 classes: wide
 header:
   teaser: /assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/SQL_Labs_Cover.png
-ribbon: red
+ribbon: green
 description: "Hello, in this writeup, I will talk about how to find and exploit SQL Injection in `lims` app provided by [Cyard](https://cyard.0x4148.com/). The Challenge involves `Login` page. The objective is to bypass authentication and dump data from different places the whole app.
 "
 categories:
