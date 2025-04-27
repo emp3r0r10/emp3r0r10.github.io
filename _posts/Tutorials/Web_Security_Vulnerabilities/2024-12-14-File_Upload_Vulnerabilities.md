@@ -7,13 +7,11 @@ ribbon: green
 description: "File upload vulnerabilities arise when an application allows users to upload files to its system without properly sanitizing or validating the file type, filename, size, or content. Attackers can manipulate this functionality to upload malicious files, which can then be executed to compromise the server or the data stored on it."
 categories:
   - Tutorials
-toc: false
+toc: true
 ---
 
 
-<img src="/assets/images/tutorials/Web_Security_Vulnerabilities/File_Upload/File-Upload.png" alt="File-Upload" style="zoom: 100%;" />
-
-## Table of Contents
+<!-- ## Table of Contents
   - [What is File Upload Vulnerability?](#what-is-File-Upload-Vulnerability)
   - [What is the Impact of File Upload Vulnerability?](#what-is-the-impact-of-file-upload-vulnerability)
   - [How to Find a File Upload Vulnerability?](#how-to-find-a-file-upload-vulnerability)
@@ -24,7 +22,7 @@ toc: false
     - [Challenge #2](#challenge-2)
     - [Challenge #3](#challenge-3)
   - [Resources](#resources)
-  - [Conclusion](#conclusion)
+  - [Conclusion](#conclusion) -->
 
 ## What is File Upload Vulnerability?
 

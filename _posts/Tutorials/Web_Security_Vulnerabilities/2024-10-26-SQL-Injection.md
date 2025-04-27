@@ -7,12 +7,11 @@ ribbon: green
 description: "SQL Injection, also known as SQLI, is a web security vulnerability that allows an attacker to inject malicious queries to manipulate a database. This can result in unauthorized access to sensitive data that should not be available to unauthorized users."
 categories:
   - Tutorials
-toc: false
+toc: true
 ---
 
-<img src="/assets/images/tutorials/Web_Security_Vulnerabilities/SQLI/SQL-Injection.png" alt="SQL-Injection" style="zoom: 100%;" />
 
-## Table of Contents
+<!-- ## Table of Contents
   - [What is SQL Injection?](#what-is-sql-injection)
   - [Types of SQL Injection](#types-of-sql-injection)
     - [In-band](#in-band)
@@ -32,7 +31,7 @@ toc: false
     - [Challenge #2](#challenge-2)
     - [Challenge #3](#challenge-3)
   - [Resources](#resources)
-  - [Conclusion](#conclusion)
+  - [Conclusion](#conclusion) -->
 
 ## What is SQL Injection
 

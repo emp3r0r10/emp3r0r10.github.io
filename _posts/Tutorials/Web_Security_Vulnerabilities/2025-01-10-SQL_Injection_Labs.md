@@ -8,12 +8,11 @@ description: "Hello, in this writeup, I will talk about how to find and exploit 
 "
 categories:
   - Tutorials
-toc: false
+toc: true
 ---
 
-<img src="/assets/images/tutorials/Web_Security_Vulnerabilities/SQL_Labs/SQL_Labs.png" alt="IDOR" style="zoom:100%;" />
 
-## Table of Contents
+<!-- ## Table of Contents
   - [Introduction](#introduction)
   - [Authentication Bypass](#authentication-bypass)
     - [Union-Based SQL Injection](#union-based-sql-injection)
@@ -22,7 +21,7 @@ toc: false
     - [Union-Based SQL Injection](#union-based-sql-injection-1)
     - [Error-Based SQL Injection](#error-based-sql-injection-1)
   - [Blind Boolean-Based SQL Injection Challenge](#blind-boolean-based-sql-injection-challenge)
-  - [SQL - Error based Challenge](#sql---error-based-challenge)
+  - [SQL - Error based Challenge](#sql---error-based-challenge) -->
 
 ## Introduction
 

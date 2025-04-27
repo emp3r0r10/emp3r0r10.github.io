@@ -11,22 +11,11 @@ categories:
 toc: true
 ---
 
-<img src="/assets/images/ctfs/CAT_Reloaded_CTF/CAT_Reloaded.png" alt="CAT_Reloaded_CTF" style="zoom:100%;" >
 
 Hello, This my first CTF (**CAT Reloaded CTF 2025**). In this writeup I will explain how I get the flag for 6 web challenges.
 
 Let's get started.
 
-<!-- ## Table of Contents
-  - [Scripto](#scripto)
-  - [The Phantom Thief](#the-phantom-thief)
-  - [DirDigger](#dirdigger)
-  - [PipeDream](#pipedream)
-  - [adminadminadmin](#adminadminadmin)
-  - [اشاااااررررررر](#اشاااااررررررر)
-  - [Python Compiler!](#python-compiler)
-  - [All are blocked ya m3lm](#all-are-blocked-ya-m3lm)
-  - [The Atomic Break-In](#the-atomic-break-in) -->
 
 ## Scripto
 

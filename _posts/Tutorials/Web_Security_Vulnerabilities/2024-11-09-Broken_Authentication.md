@@ -7,13 +7,11 @@ ribbon: green
 description: "Authentication is the process of verifying the identity of a user. It ensures that the person or system interacting with a service is who they claim to be."
 categories:
   - Tutorials
-toc: false
+toc: true
 ---
 
-<img src="/assets/images/tutorials/Web_Security_Vulnerabilities/Broken_Authentication/Broken-Authentication.png" alt="Broken-Authentication" style="zoom: 100%;" />
 
-
-## Table of Contents
+<!-- ## Table of Contents
   - [What is Authentication?](#what-is-authentication)
   - [What is the Difference Between Authentication and Authorization?](#what-is-the-difference-between-authentication-and-authorization)
   - [What is Broken Authentication?](#what-is-broken-authentication)
@@ -26,7 +24,7 @@ toc: false
     - [Challenge #3](#challenge-3)
     - [Challenge #4](#challenge-4)
   - [Resources](#resources)
-  - [Conclusion](#conclusion)
+  - [Conclusion](#conclusion) -->
 
 
 Before we dive into the Broken Authentication vulnerability, we need to understand what authentication is and the difference between authentication and authorization.
