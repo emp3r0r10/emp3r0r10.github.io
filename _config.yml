@@ -104,7 +104,7 @@ analytics:
 author:
   name             : "Abdelrahman Elshinbary"
   avatar           : /assets/images/site_data/avatar.png # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Penetration Tester & HTB Player"
+  bio              : "Penetration Tester"
   # location         : "127.0.0.1"
   email            :
   links:
@@ -116,7 +116,7 @@ author:
       # url: "https://your-website.com"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/emp3r0r101"
+      url: "https://twitter.com/_emp3r0r10"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
       # url: "https://facebook.com/eln0ty
