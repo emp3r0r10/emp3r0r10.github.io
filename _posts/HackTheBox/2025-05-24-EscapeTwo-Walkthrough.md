@@ -406,36 +406,26 @@ Finally let's login as `Administrator` and NTLM hash and read `root.txt` file.
 
 ![root.txt_file](/assets/images/hackthebox/EscapeTwo-Writeup/root.txt_file.png)
 
-## Beyond The Root
-
-
-
-
-
-
-
-
-
-
-
 ## Resources
 
-1. https://www.hackingarticles.in/abusing-ad-dacl-writeowner/
+- https://www.hackingarticles.in/abusing-ad-dacl-writeowner/
 
-2. https://www.thehacker.recipes/ad/movement/dacl/grant-rights
+- https://www.thehacker.recipes/ad/movement/dacl/grant-rights
 
-3. https://medium.com/@aslam.mahimkar/exploiting-ad-dacl-writeowner-misconfiguration-ca61fb2fcee1
+- https://medium.com/@aslam.mahimkar/exploiting-ad-dacl-writeowner-misconfiguration-ca61fb2fcee1
 
-4. https://github.com/fortra/impacket
+- https://github.com/fortra/impacket
 
-5. https://decoder.cloud/2023/11/20/a-deep-dive-in-cert-publishers-group/
+- https://decoder.cloud/2023/11/20/a-deep-dive-in-cert-publishers-group/
 
-6. https://www.thehacker.recipes/ad/movement/adcs/
+- https://www.thehacker.recipes/ad/movement/adcs/
 
-7. https://redfoxsec.com/blog/exploiting-weak-acls-on-active-directory-certificate-templates-esc4/
+- https://redfoxsec.com/blog/exploiting-weak-acls-on-active-directory-certificate-templates-esc4/
 
-8. https://www.blackhillsinfosec.com/abusing-active-directory-certificate-services-part-one/
-9. https://www.blackhillsinfosec.com/abusing-active-directory-certificate-services-part-2/
-10. https://book.hacktricks.wiki/en/windows-hardening/active-directory-methodology/ad-certificates/domain-escalation.html
+- https://www.blackhillsinfosec.com/abusing-active-directory-certificate-services-part-one/
+
+- https://www.blackhillsinfosec.com/abusing-active-directory-certificate-services-part-2/
+
+- https://book.hacktricks.wiki/en/windows-hardening/active-directory-methodology/ad-certificates/domain-escalation.html
 
 Hope you found this writeup useful and enjoyable. Thanks for reading.
