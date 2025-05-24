@@ -8,12 +8,10 @@ description: "Hello Hackers, back with another HackTheBox machine writeup. It's 
 "
 categories:
   - HackTheBox
-toc: true
+toc: false
 ---
 
-<img src="/assets/images/hackthebox/EscapeTwo-Writeup/EscapeTwo.png" alt="EscapeTwo" style="zoom: 50%;" />
-
-<!-- ## Table of Contents
+## Table of Contents
   - [EscapeTwo Machine Writeup](#escapetwo-machine-writeup)
   - [Recon](#recon)
     - [Ports](#ports)
@@ -34,7 +32,7 @@ toc: true
   - [Shell as administrator](#shell-as-administrator)
   - [BloodHound Setup](#bloodhound-setup)
   - [Beyond The Root](#beyond-the-root)
-  - [Resources](#resources) -->
+  - [Resources](#resources)
 
 Hello Hackers, back with another HackTheBox machine writeup. It's been a while since I wrote a writeup about HackTheBox. My last writeup was in `17 February 2024`. Today's machine is [EscapeTwo](https://app.hackthebox.com/machines/642) (Windows/Medium). So, let's run the machine and go on. But first, I noticed that there piece of information about machine which provides us with credentials `rose:KxEPkKe6R8su` like real pentesting. So open any text editor to note everything we will face through the writeup.
 
