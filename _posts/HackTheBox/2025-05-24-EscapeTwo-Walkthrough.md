@@ -9,6 +9,7 @@ description: "Hello Hackers, back with another HackTheBox machine writeup. It's 
 categories:
   - HackTheBox
 toc: true
+toc_levels: 1..4
 ---
 
 <img src="/assets/images/hackthebox/EscapeTwo-Writeup/EscapeTwo.png" alt="EscapeTwo" style="zoom: 50%;" />
