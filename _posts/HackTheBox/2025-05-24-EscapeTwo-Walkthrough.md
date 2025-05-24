@@ -8,12 +8,12 @@ description: "Hello Hackers, back with another HackTheBox machine writeup. It's 
 "
 categories:
   - HackTheBox
-toc: false
+toc: true
 ---
 
 <img src="/assets/images/hackthebox/EscapeTwo-Writeup/EscapeTwo.png" alt="EscapeTwo" style="zoom: 50%;" />
 
-## Table of Contents
+<!-- ## Table of Contents
   - [EscapeTwo Machine Writeup](#escapetwo-machine-writeup)
   - [Recon](#recon)
     - [Ports](#ports)
@@ -34,7 +34,7 @@ toc: false
   - [Shell as administrator](#shell-as-administrator)
   - [BloodHound Setup](#bloodhound-setup)
   - [Beyond The Root](#beyond-the-root)
-  - [Resources](#resources)
+  - [Resources](#resources) -->
 
 Hello Hackers, back with another HackTheBox machine writeup. It's been a while since I wrote a writeup about HackTheBox. My last writeup was in `17 February 2024`. Today's machine is [EscapeTwo](https://app.hackthebox.com/machines/642) (Windows/Medium). So, let's run the machine and go on. But first, I noticed that there piece of information about machine which provides us with credentials `rose:KxEPkKe6R8su` like real pentesting. So open any text editor to note everything we will face through the writeup.
 
@@ -410,22 +410,22 @@ Finally let's login as `Administrator` and NTLM hash and read `root.txt` file.
 
 - https://www.hackingarticles.in/abusing-ad-dacl-writeowner/
 
-- https://www.thehacker.recipes/ad/movement/dacl/grant-rights
+- [https://www.thehacker.recipes/ad/movement/dacl/grant-rights](https://www.thehacker.recipes/ad/movement/dacl/grant-rights)
 
-- https://medium.com/@aslam.mahimkar/exploiting-ad-dacl-writeowner-misconfiguration-ca61fb2fcee1
+- [https://medium.com/@aslam.mahimkar/exploiting-ad-dacl-writeowner-misconfiguration-ca61fb2fcee1](https://medium.com/@aslam.mahimkar/exploiting-ad-dacl-writeowner-misconfiguration-ca61fb2fcee1)
 
-- https://github.com/fortra/impacket
+- [https://github.com/fortra/impacket](https://github.com/fortra/impacket)
 
-- https://decoder.cloud/2023/11/20/a-deep-dive-in-cert-publishers-group/
+- [https://decoder.cloud/2023/11/20/a-deep-dive-in-cert-publishers-group/](https://decoder.cloud/2023/11/20/a-deep-dive-in-cert-publishers-group/)
 
-- https://www.thehacker.recipes/ad/movement/adcs/
+- [https://www.thehacker.recipes/ad/movement/adcs/](https://www.thehacker.recipes/ad/movement/adcs/)
 
-- https://redfoxsec.com/blog/exploiting-weak-acls-on-active-directory-certificate-templates-esc4/
+- [https://redfoxsec.com/blog/exploiting-weak-acls-on-active-directory-certificate-templates-esc4/](https://redfoxsec.com/blog/exploiting-weak-acls-on-active-directory-certificate-templates-esc4/)
 
-- https://www.blackhillsinfosec.com/abusing-active-directory-certificate-services-part-one/
+- [https://www.blackhillsinfosec.com/abusing-active-directory-certificate-services-part-one/](https://www.blackhillsinfosec.com/abusing-active-directory-certificate-services-part-one/)
 
-- https://www.blackhillsinfosec.com/abusing-active-directory-certificate-services-part-2/
+- [https://www.blackhillsinfosec.com/abusing-active-directory-certificate-services-part-2/](https://www.blackhillsinfosec.com/abusing-active-directory-certificate-services-part-2/)
 
-- https://book.hacktricks.wiki/en/windows-hardening/active-directory-methodology/ad-certificates/domain-escalation.html
+- [https://book.hacktricks.wiki/en/windows-hardening/active-directory-methodology/ad-certificates/domain-escalation.html](https://book.hacktricks.wiki/en/windows-hardening/active-directory-methodology/ad-certificates/domain-escalation.html)
 
 Hope you found this writeup useful and enjoyable. Thanks for reading.
