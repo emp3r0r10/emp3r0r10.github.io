@@ -7,7 +7,7 @@ ribbon: blue
 description: "Hello, This my first CTF writeup (CAT Reloaded CTF). In this writeup I will explain how I get the flag for 9 web challenges. Let's get started.
 "
 categories:
-  - CTF_Writeups
+  - CTF Writeups
 toc: true
 ---
 
