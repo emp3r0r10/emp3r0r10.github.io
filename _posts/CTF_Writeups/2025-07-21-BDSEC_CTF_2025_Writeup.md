@@ -2,7 +2,7 @@
 title: "BDSEC CTF 2025 Writeup"
 classes: wide
 header:
-  teaser: /assets/images/ctf_writeups/Bsides_CTF/BDSEC_logo.png
+  teaser: /assets/images/ctf_writeups/BDSEC_CTF/BDSEC_logo.png
 ribbon: blue
 description: "The challenge description gives us some hints and an overview of the challenge:"
 categories:
@@ -111,6 +111,14 @@ We can see in the above image includes the following:
 4. If the `command` contains a something from the blacklist, It returns an error.
 5. The command is executed on the server shell.
 6. Output or errors are sent back to the client.
+
+![Solution_3.8](/assets/images/ctf_writeups/BDSec_CTF/Solution_3.8.png)
+
+As we see above the the YAML input is converted into JSON format.
+
+so we can do the same using `command` parameter as we see below.
+
+![Solution_3.9](/assets/images/ctf_writeups/BDSec_CTF/Solution_3.9.png)
 
 ![Solution_3.2](/assets/images/ctf_writeups/BDSec_CTF/Solution_3.2.png)
 
