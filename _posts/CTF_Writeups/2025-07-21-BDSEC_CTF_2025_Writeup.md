@@ -99,9 +99,9 @@ The challenge description tells us that there is a feature to convert plain text
 
 Let's download files and check them.
 
-![Solution_3.0](/assets/images/ctf_writeups/BDSec_CTF/Solution_3.0.png)
+![Solution_3.0](C:\Users\abdel\Desktop\BDSec_CTF\Solution_3.0.png)
 
-![Solution_3.1](/assets/images/ctf_writeups/BDSec_CTF/Solution_3.1.png)
+![Solution_3.1](C:\Users\abdel\Desktop\BDSec_CTF\Solution_3.1.png)
 
 We can see in the above image includes the following:
 
@@ -111,6 +111,8 @@ We can see in the above image includes the following:
 4. If the `command` contains a something from the blacklist, It returns an error.
 5. The command is executed on the server shell.
 6. Output or errors are sent back to the client.
+
+![Solution_3.2](C:\Users\abdel\Desktop\BDSec_CTF\Solution_3.2.png)
 
 The challenge URL redirect us to the `HTML` page.
 
@@ -141,3 +143,4 @@ To do this, we need to use `echo`, but it's blocked. So, we can use it's alterna
 Now let's read the flag.
 
 ![Solution_3.7](C:\Users\abdel\Desktop\BDSec_CTF\Solution_3.7.png)
+
