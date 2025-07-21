@@ -2,7 +2,7 @@
 title: "BDSEC CTF 2025 Writeup"
 classes: wide
 header:
-  teaser: /assets/images/ctf_writeups/BDSEC_CTF/BDSEC_logo.png
+  teaser: /assets/images/ctf_writeups/BDSec_CTF/BDSEC_logo.png
 ribbon: blue
 description: "The challenge description gives us some hints and an overview of the challenge:"
 categories:
@@ -112,32 +112,32 @@ We can see in the above image includes the following:
 5. The command is executed on the server shell.
 6. Output or errors are sent back to the client.
 
-![Solution_3.8](/assets/images/ctf_writeups/BDSec_CTF/Solution_3.8.png)
+The challenge URL redirect us to the `HTML` page.
+
+![Solution_3.8](C:\Users\abdel\Desktop\BDSec_CTF\Solution_3.8.png)
 
 As we see above the the YAML input is converted into JSON format.
 
 so we can do the same using `command` parameter as we see below.
 
-![Solution_3.9](/assets/images/ctf_writeups/BDSec_CTF/Solution_3.9.png)
-
-![Solution_3.2](/assets/images/ctf_writeups/BDSec_CTF/Solution_3.2.png)
+![Solution_3.9](C:\Users\abdel\Desktop\BDSec_CTF\Solution_3.9.png)
 
 If we send a request with `{ command: "id" }` or `{ command: "ls" }`, it will executed successfully.
 
-![Solution_3.3](/assets/images/ctf_writeups/BDSec_CTF/Solution_3.3.png)
+![Solution_3.3](C:\Users\abdel\Desktop\BDSec_CTF\Solution_3.3.png)
 
-![Solution_3.4](/assets/images/ctf_writeups/BDSec_CTF/Solution_3.4.png)
+![Solution_3.4](C:\Users\abdel\Desktop\BDSec_CTF\Solution_3.4.png)
 
 If we send `{ command: "cat server.js" }`, it shows us an error as it is a blacklisted value.
 
-![Solution_3.5](/assets/images/ctf_writeups/BDSec_CTF/Solution_3.5.png)
+![Solution_3.5](C:\Users\abdel\Desktop\BDSec_CTF\Solution_3.5.png)
 
 As we need to read `flag.txt` file, we can't read it directly. So we need to convert the payload into `base64` and execute it using `sh -c '<PAYLOAD>'`.
 
 To do this, we need to use `echo`, but it's blocked. So, we can use it's alternative: `printf` like the following:
 
-![Solution_3.6](/assets/images/ctf_writeups/BDSec_CTF/Solution_3.6.png)
+![Solution_3.6](C:\Users\abdel\Desktop\BDSec_CTF\Solution_3.6.png)
 
 Now let's read the flag.
 
-![Solution_3.7](/assets/images/ctf_writeups/BDSec_CTF/Solution_3.7.png)
+![Solution_3.7](C:\Users\abdel\Desktop\BDSec_CTF\Solution_3.7.png)
