@@ -1,5 +1,5 @@
 ---
-title: "# DEADFACE CTF 2025 - Hack The Night Writeup"
+title: "DEADFACE CTF 2025 - Hack The Night Writeup"
 classes: wide
 header:
   teaser: /assets/images/ctf_writeups/DeadFace_CTF/DeadFace_CTF_Logo.jpg
