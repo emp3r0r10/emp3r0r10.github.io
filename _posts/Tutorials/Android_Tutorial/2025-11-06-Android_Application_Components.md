@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-![Android_Activity](/assets/images/tutorials/Android_Tutorial/Android_Activity.png)
+![Android_Activity](/assets/images/tutorials/Android_Tutorial/Android_Components/Android_Activity.png)
 
 > **Toast** provides simple feedback about an operation in a small popup. It only fills the amount of space required for the message and the current activity remains visible and interactive. Toasts automatically disappear after a timeout.
 
@@ -247,9 +247,9 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-![Service_1](/assets/images/tutorials/Android_Tutorial/Service_1.png)
+![Service_1](/assets/images/tutorials/Android_Tutorial/Android_Components/Service_1.png)
 
-![Service_2](/assets/images/tutorials/Android_Tutorial/Service_2.png)
+![Service_2](/assets/images/tutorials/Android_Tutorial/Android_Components/Service_2.png)
 
 #### Bounded Service Code Example
 
@@ -500,13 +500,13 @@ public class MainActivity extends AppCompatActivity {
 </receiver>
 ```
 
-![Broadcast_1](/assets/images/tutorials/Android_Tutorial/Broadcast_1.png)
+![Broadcast_1](/assets/images/tutorials/Android_Tutorial/Android_Components/Broadcast_1.png)
 
-![Broadcast_2](/assets/images/tutorials/Android_Tutorial/Broadcast_2.png)
+![Broadcast_2](/assets/images/tutorials/Android_Tutorial/Android_Components/Broadcast_2.png)
 
 ## Content Provider & Resolver
 
-<img src="/assets/images/tutorials/Android_Tutorial/Android_Content_Provider.webp" alt="Android_Content_Provider" style="zoom: 80%;" />
+<img src="/assets/images/tutorials/Android_Tutorial/Android_Components/Android_Content_Provider.webp" alt="Android_Content_Provider" style="zoom: 80%;" />
 
 Content Provider is a component in Android that manages access to a structured set of data stored in a database, shared preferences, files, or any data source. It acts as an abstraction layer between the data source and the components that need to access the data (e.g., activities, services, or other apps). Content providers are primarily used to share data between applications securely.
 
@@ -994,7 +994,7 @@ An Intent Filter is a declaration in the `AndroidManifest.xml` file that specifi
 
 ## Example of Intents and Intent Filters
 
-![Android_Intent_filters](/assets/images/tutorials/Android_Tutorial/Android_Intent_filters.png)
+![Android_Intent_filters](/assets/images/tutorials/Android_Tutorial/Android_Components/Android_Intent_filters.png)
 
 ### Scenario
 
@@ -1128,7 +1128,7 @@ webView.loadUrl("https://www.google.com");  // Load a webpage
 
 We can load the app and see that it works as expected:
 
-![Android_WebView](/assets/images/tutorials/Android_Tutorial/Android_WebView.png)
+![Android_WebView](/assets/images/tutorials/Android_Tutorial/Android_Components/Android_WebView.png)
 
 ### Common WebView Settings
 
