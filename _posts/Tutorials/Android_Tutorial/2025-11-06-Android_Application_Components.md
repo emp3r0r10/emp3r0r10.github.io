@@ -138,9 +138,9 @@ Services run in the background to perform long-running operations without user i
 
 #### Unbounded Service Code Example
 
-`Service.kt`
+`Service.java`
 
-```Kotlin
+```java
 package com.example.myapp;
 import android.app.Service;
 import android.content.Intent;
@@ -200,13 +200,13 @@ public class MyUnboundService extends Service {
 
 `AndroidManifest.xml`
 
-```Kotlin
+```xml
 <service android:name=".Service" />
 ```
 
 `MainActivity.kt`
 
-```Kotlin
+```java
 package com.example.application_2
 
 import android.content.Intent
@@ -491,7 +491,7 @@ public class MainActivity extends AppCompatActivity {
 
 `AndroidManifest.xml`
 
-```kotlin
+```xml
 <receiver android:name=".WifiStateReceiver"
     android:exported="true">
     <intent-filter>
@@ -899,7 +899,7 @@ An Intent is a messaging object used to request an action from another component
 
    Code Example:
 
-   ```kotlin
+   ```java
    Intent intent = new Intent(Intent.ACTION_VIEW);
    intent.setData(Uri.parse("https://www.google.com"));
    startActivity(intent);
@@ -911,7 +911,7 @@ An Intent is a messaging object used to request an action from another component
    
    Code Example:
    
-   ```Kotlin
+   ```java
    val intent = Intent(this, SecondActivity::class.java)
    intent.putExtra("message", "Hello from MainActivity")
    startActivity(intent)
@@ -1072,7 +1072,7 @@ An Intent Filter is a declaration in the `AndroidManifest.xml` file that specifi
              <data android:scheme="https" />
          </intent-filter>
      </activity>
-
+    ```
 3. **Chooser Dialog (Allowing the User to Select a Browser)**
 
    - When the intent is sent, Android checks for apps that match the intent filter.
