@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this); // Equivalent to enableEdgeToEdge() in Kotlin
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
         Button btn = findViewById(R.id.button);
@@ -1063,7 +1063,7 @@ An Intent Filter is a declaration in the `AndroidManifest.xml` file that specifi
 
    - Example (Intent Filter in Browser Apps like Chrome, Firefox, etc.)
 
-     ```XML
+     ```xml
      <activity android:name=".BrowserActivity">
          <intent-filter>
              <action android:name="android.intent.action.VIEW" />
