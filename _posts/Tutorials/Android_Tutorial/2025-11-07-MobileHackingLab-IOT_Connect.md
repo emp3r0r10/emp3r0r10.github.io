@@ -7,7 +7,7 @@ ribbon: green
 description: "Hello, in today's writeup, I will walk you through [IOT Connect](https://www.mobilehackinglab.com/course/lab-iot-connect) lab [MobileHackingLab](https://www.mobilehackinglab.com/)."
 categories:
   - Tutorials
-toc: true
+toc: false
 ---
 
 ![IOT_Connect](/assets/images/tutorials/Android_Tutorial/MHL_IOT_Connect/IOT_Connect.png)
