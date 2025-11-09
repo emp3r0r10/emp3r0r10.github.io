@@ -2,7 +2,7 @@
 title: "CyCTF 2025 Quals - Mobile Writeups"
 classes: wide
 header:
-  teaser: /assets/images/ctf_writeups/CYCTF25/CYCTF_Logo.jpg
+  teaser: /assets/images/ctf_writeups/CYCTF25/CYCTF_Logo.png
 ribbon: blue
 description: "Hello everyone, In this writeup, I will show you how I solved `Grand Theft Mobile` and `Vault Raider` mobile challenges from **CyCTF**, powered by [**CyShield**](https://www.linkedin.com/company/cyshield). Let's get started."
 categories:
@@ -204,8 +204,6 @@ The android manifest is like the previous one with one activity (`MainActivity`)
     - `bl()` Analysis:
 
       - Does nothing relevant.
-
-## Exploitation
 
 Let's recap what we should do to get the flag:
 
