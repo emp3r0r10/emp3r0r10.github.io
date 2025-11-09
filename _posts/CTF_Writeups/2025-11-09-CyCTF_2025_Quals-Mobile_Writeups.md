@@ -211,11 +211,9 @@ Let's recap what we should do to get the flag:
 
 1. **Get  PartA:**
 
-   For `PartA`, actually I tried `000000000000000` as  `IMEI` value and it worked.
+   For `PartA`, actually I tried `000000000000000` as  `IMEI` value and it worked because I use an android emulator not real device.
 
    IMEI (SHA-256): `664e7c008e22933e2358f5b74864e1c7bef2331480e6be12427457ac483fce53`.
-
-   I think any IMEI value will work as it validates the prefix in flag and don't validate the first reversed 8-bit. 
 
 2. **Get Part C:**
 
