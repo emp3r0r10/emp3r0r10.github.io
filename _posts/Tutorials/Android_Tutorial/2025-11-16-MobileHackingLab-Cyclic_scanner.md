@@ -16,7 +16,7 @@ Hello, in today's writeup, I will walk you through [Cyclic Scanner](https://www.
 
 In this lab we will explore how to analyze Android Services to find vulnerabilities. We will find a misconfiguration which will allow us to achieve `Remote Code Execution (RCE)` on an Android device.
 
-To understand what services are in more details, you can explore it in [Android Component](https://www.mobilehackinglab.com/course/lab-cyclic-scanner) Tutorial.
+To understand what services are in more details, you can explore it in [Android Components](https://emp3r0r10.github.io/tutorials/Android_Application_Components/) Tutorial.
 
 So, let's start by downloading the `.apk` and running it in an Android emulator to get an overview of how the application works at runtime.
 
