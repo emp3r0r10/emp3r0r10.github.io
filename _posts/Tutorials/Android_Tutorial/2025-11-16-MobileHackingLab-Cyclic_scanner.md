@@ -4,7 +4,7 @@ classes: wide
 header:
   teaser: /assets/images/tutorials/Android_Tutorial/MHL_Cyclic_Scanner/Cyclic_Scanner.png
 ribbon: green
-description: "Hello, in today's writeup, I will walk you through [Cyclic Scanner](https://www.mobilehackinglab.com/course/lab-cyclic-scanner) lab [MobileHackingLab](https://www.mobilehackinglab.com/)."
+description: "Hello, in today's writeup, I will walk you through Cyclic Scanner MobileHackingLab."
 categories:
   - Tutorials
 toc: false
