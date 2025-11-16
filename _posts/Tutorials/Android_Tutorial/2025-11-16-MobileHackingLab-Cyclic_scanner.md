@@ -2,7 +2,7 @@
 title: "Mobile Hacking Lab - Cyclic Scanner Writeup"
 classes: wide
 header:
-  teaser: /assets/images/tutorials/Android_Tutorial/MHL_Cyclic_Scanner/Cyclic_Scanner.png
+  teaser: /assets/images/tutorials/Android_Tutorial/MHL_Cyclic_Scanner/Cyclick_Scanner.png
 ribbon: green
 description: "Hello, in today's writeup, I will walk you through Cyclic Scanner MobileHackingLab."
 categories:
