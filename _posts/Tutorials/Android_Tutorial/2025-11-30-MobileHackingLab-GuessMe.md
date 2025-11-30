@@ -51,7 +51,6 @@ I checked `MainActivity` and found it not interesting as it contains some UI and
 **`LoadAssetIndex()` Analysis**
 
 1. Checks `webView` is not null.
-
 2. Loads the `index.html` file located in `assets/`:
 
    ![index.html](/assets/images/tutorials/Android_Tutorial/MHL_GuessMe\index.html.png)
@@ -63,13 +62,12 @@ Call `handleDeepLink()`
 **`handleDeepLink()` Analysis**
 
 1. Sends the intent and handles the deep link inside it.
-
-1. Checks that the URI is not null.
-2. Passes the URI to `isValidDeepLink()`.
+3. Checks that the URI is not null.
+4. Passes the URI to `isValidDeepLink()`.
    1. Checks that the URI starts with the `mhl` or `https` scheme and the `mobilehackinglab` host.
    2. Extracts the `url` parameter and checks it is not null.
    3. Checks that the value of the `url` parameter ends with `mobilehackinglab.com`.
-3. If the URI is valid, it is passed to the `loadDeepLink(uri)` method, which:
+5. If the URI is valid, it is passed to the `loadDeepLink(uri)` method, which:
    1. Takes the value of the `url` parameter and loads it through `webView.loadUrl()`.
 
 So, the app flow is the following:
