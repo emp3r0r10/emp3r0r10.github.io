@@ -40,15 +40,11 @@ I checked `MainActivity` and found it not interesting as it contains some UI and
 
 **`WebviewActivity` Analysis:**
 
-Creates a `webView` and checks it is not null.
-
-Defines `setJavaScriptEnabled()` which enables the execution of JavaScript code inside the WebView.
-
-Creates `webView3`, checks that it is not null, then passes the `webView` to it.
-
-Sets `addJavascriptInerface()` on `webView3`, which allows web JavaScript code to call Java objects (Android code).
-
-Calls `LoadAssetIndex()`.
+1. Creates a `webView` and checks it is not null.
+2. Defines `setJavaScriptEnabled()` which enables the execution of JavaScript code inside the WebView.
+3. Creates `webView3`, checks that it is not null, then passes the `webView` to it.
+4. Sets `addJavascriptInerface()` on `webView3`, which allows web JavaScript code to call Java objects (Android code).
+5. Calls `LoadAssetIndex()`.
 
 ![Webview_3](/assets/images/tutorials/Android_Tutorial/MHL_GuessMe\Webview_3.png)
 
