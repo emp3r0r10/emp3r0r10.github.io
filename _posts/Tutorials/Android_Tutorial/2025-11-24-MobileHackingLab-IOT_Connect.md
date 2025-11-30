@@ -4,7 +4,7 @@ classes: wide
 header:
   teaser: /assets/images/tutorials/Android_Tutorial/MHL_IOT_Connect/IOT_Connect.png
 ribbon: green
-description: "Hello, in today's writeup, I will walk you through IOT Connect MobileHackingLab."
+description: "Hello, in today's writeup, I will walk you through IOT Connect from MobileHackingLab."
 categories:
   - Tutorials
 toc: false
