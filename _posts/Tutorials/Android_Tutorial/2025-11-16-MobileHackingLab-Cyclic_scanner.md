@@ -4,7 +4,7 @@ classes: wide
 header:
   teaser: /assets/images/tutorials/Android_Tutorial/MHL_Cyclic_Scanner/Cyclic_Scanner.png
 ribbon: green
-description: "Hello, in today's writeup, I will walk you through Cyclic Scanner MobileHackingLab."
+description: "Hello, in today's writeup, I will walk you through Cyclic Scanner lab from MobileHackingLab."
 categories:
   - Tutorials
 toc: false
@@ -12,7 +12,7 @@ toc: false
 
 ![Cyclic_Scanner](/assets/images/tutorials/Android_Tutorial/MHL_Cyclic_Scanner/Cyclic_Scanner.png)
 
-Hello, in today's writeup, I will walk you through [Cyclic Scanner](https://www.mobilehackinglab.com/course/lab-cyclic-scanner) lab [MobileHackingLab](https://www.mobilehackinglab.com/).
+Hello, in today's writeup, I will walk you through [Cyclic Scanner](https://www.mobilehackinglab.com/course/lab-cyclic-scanner) lab from [MobileHackingLab](https://www.mobilehackinglab.com/).
 
 In this lab we will explore how to analyze Android Services to find vulnerabilities. We will find a misconfiguration which will allow us to achieve `Remote Code Execution (RCE)` on an Android device.
 
