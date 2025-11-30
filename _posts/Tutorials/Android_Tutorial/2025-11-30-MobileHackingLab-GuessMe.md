@@ -2,7 +2,7 @@
 title: "Mobile Hacking Lab - GuessMe Writeup"
 classes: wide
 header:
-  teaser: /assets/images/tutorials/Android_Tutorial/MHL_Cyclic_Scanner/Cyclic_Scanner.png
+  teaser: /assets/images/tutorials/Android_Tutorial/MHL_GuessMe/GussMe.png
 ribbon: green
 description: "Hello, in today's writeup, I will walk you through GuessMe lab from MobileHackingLab."
 categories:
