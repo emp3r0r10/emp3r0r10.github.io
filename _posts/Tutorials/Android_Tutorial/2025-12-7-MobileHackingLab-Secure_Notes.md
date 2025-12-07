@@ -30,7 +30,9 @@ We can see it contains one activity (`MainActivity`) and an interesting content 
 
 In line `45`, the full provider line is:
 
-` <provider android:name="com.mobilehackinglab.securenotes.SecretDataProvider" android:enabled="true" android:exported="true" android:authorities="com.mobilehackinglab.securenotes.secretprovider"/>`
+```xml
+<provider android:name="com.mobilehackinglab.securenotes.SecretDataProvider" android:enabled="true" android:exported="true" android:authorities="com.mobilehackinglab.securenotes.secretprovider"/>
+```
 
 ![Manifest](/assets/images/tutorials/Android_Tutorial/MHL_Secure_Notes/Manifest.png)
 
