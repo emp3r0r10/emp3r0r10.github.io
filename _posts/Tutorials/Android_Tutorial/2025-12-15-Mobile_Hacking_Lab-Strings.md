@@ -276,7 +276,7 @@ I searched for how to scan memory using frida and the [docs](https://frida.re/do
 So, after we trigger `Activity2` using the valid base64 value, the native library called `libflag.so` is loaded and the flag is initialized in memory. So, we need to scan `libflag.so` for the `"MHL"` pattern and read the flag using the following Frida script:
 
 <!-- ![Extract_Flag](/assets/images/tutorials/Android_Tutorial/MHL_Strings/Extract_Flag.png) -->
-```javascript
+```Javascript
 Java.perform(function() {
     setTimeout(function () {
         var moduleName = "libflag.so";
