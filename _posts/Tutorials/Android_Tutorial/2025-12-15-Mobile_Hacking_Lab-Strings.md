@@ -275,7 +275,38 @@ I searched for how to scan memory using frida and the [docs](https://frida.re/do
 
 So, after we trigger `Activity2` using the valid base64 value, the native library called `libflag.so` is loaded and the flag is initialized in memory. So, we need to scan `libflag.so` for the `"MHL"` pattern and read the flag using the following Frida script:
 
-![Extract_Flag](/assets/images/tutorials/Android_Tutorial/MHL_Strings/Extract_Flag.png)
+<!-- ![Extract_Flag](/assets/images/tutorials/Android_Tutorial/MHL_Strings/Extract_Flag.png) -->
+```javascript
+Java.perform(function() {
+    setTimeout(function () {
+        var moduleName = "libflag.so";
+        var pattern = "4D 48 4C 7B"; // MHL {
+        var module = Process.getModuleByName(moduleName);
+        if (module === null) {
+            console.log("[-] Module not found: " + moduleName);
+        } else {
+            console.log("[*] Scanning module:", moduleName, module.base, "size:", module.size);
+            Memory.scan(module.base, module.size, pattern, {
+                onMatch: function (address, size) {
+                    console.log("[+] match at", address, "size", size);
+
+                    console.log(hexdump(address, { length: 64 }));
+
+                    var flagString = Memory.readCString(address);
+
+                    console.log("Flag: ", flagString);
+                },
+                onComplete: function() {
+                    console.log("[*] scan complete");   
+                },
+                onError: function (reason) {
+                    console.log("[-] scan error:", reason);
+                }
+            });
+        }
+    }, 2000);
+});
+```
 
 `readCSString(address)` to extract a C string from the address.
 
