@@ -1,5 +1,5 @@
 ---
-title: "Mobile Hacking Lab - Secure Notes Writeup"
+title: "Mobile Hacking Lab - Strings Writeup"
 classes: wide
 header:
   teaser: /assets/images/tutorials/Android_Tutorial/MHL_Strings/Strings.png
