@@ -20,7 +20,7 @@ title                    : "Emp3r0r10"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Abdelrahman Elshinbary"
-description              : "Penetration Tester & HTB Player"
+description              : "Penetration Tester & CTF Player"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -104,7 +104,7 @@ analytics:
 author:
   name             : "Abdelrahman Elshinbary"
   avatar           : /assets/images/site_data/avatar.png # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Penetration Tester"
+  bio              : "Penetration Tester & CTF Player"
   # location         : "127.0.0.1"
   email            :
   links:
