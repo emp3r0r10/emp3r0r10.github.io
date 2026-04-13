@@ -105,17 +105,7 @@ If we add `hasAxe: true` while visiting this endpoint, we will get the flag.
 
 The app contains 66 box and one of them is vulnerable:
 
-```html
-<div class="output" style="min-height: 20px; color: #fff; margin-bottom: 10px;">
-{% set content = grid_data[i] %}
-
-{% if i == vuln_index %}
-    {{ content | safe }}
-{% else %}
-    {{ content }}
-{% endif %}
-</div>
-```
+![Vulnerable_Code](/assets/images/ctf_writeups/UMass_CTF/ORDER66/Vulnerable_Code.png)
 
 > `|safe` don't escape characters, so there is a chance for XSS and steal cookies.
 
