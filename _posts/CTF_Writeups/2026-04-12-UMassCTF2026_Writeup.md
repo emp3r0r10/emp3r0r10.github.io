@@ -2,7 +2,7 @@
 title: "UMass CTF 2026 - Web Writeup"
 classes: wide
 header:
-  teaser: /assets/images/ctf_writeups/UMass_CTF/UMassCTF_Logo.png
+  teaser: /assets/images/ctf_writeups/UMass_CTF/UMassCTF_Logo.jpg
 ribbon: blue
 description: "Hello everyone, today's writeup will be for UMassCTF 2026 some web challenges."
 categories:
@@ -176,6 +176,7 @@ Now, let's send the seed URL to admin and get the flag.
 ![Flag](/assets/images/ctf_writeups/UMass_CTF/ORDER66/Flag.png)
 
 > **Flag:** UMASS{m@7_t53_f0rce_b$_w!th_y8u}
+
 
 ## The Block City Times
 
