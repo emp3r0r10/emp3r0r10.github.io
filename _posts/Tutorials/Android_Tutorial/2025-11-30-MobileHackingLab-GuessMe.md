@@ -16,7 +16,7 @@ Hello, in today's writeup, I will walk you through [Guess Me](https://www.mobile
 
 In this lab we will abuse `Deep Link` behavior in android application to gain Remote Code Execution (RCE).
 
-To understand what a `Webview` and `Deep Link` are, you can see this [tutorial](https://emp3r0r10.github.io/tutorials/SQL-Injection/).
+To understand what a `Webview` and `Deep Link` are, you can see this [tutorial](https://emp3r0r10.github.io/tutorials/Android_Application_Components/#webview).
 
 Let's open the application through android emulator.
 
