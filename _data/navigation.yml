@@ -2,7 +2,7 @@
 main:
   - title: "Web Pentesting"
     url: /categories/#web-pentesting
-  - title: "AndroidPentesting"
+  - title: "Android Pentesting"
     url: /categories/#android-pentesting
   - title: "All Categories"
     url: /categories
