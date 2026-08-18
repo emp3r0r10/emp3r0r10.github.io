@@ -3,7 +3,7 @@ title: "Timelapse Machine Writeup"
 classes: wide
 header:
   teaser: /assets/images/hackthebox/Timelapse-Writeup/Timelapse.png
-ribbon: red
+ribbon: limegreen
 description: "Timelapse is an easy windows machine that involves smb enumeration, password hash cracking, and exploitation of weak active directory configuration."
 categories:
   - HackTheBox

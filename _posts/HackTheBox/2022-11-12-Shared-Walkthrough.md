@@ -3,7 +3,7 @@ title: "Shared Machine Writeup"
 classes: wide
 header:
   teaser: /assets/images/hackthebox/Shared-Writeup/Shared.png
-ribbon: red
+ribbon: limegreen
 description: "Shared is medium linux machine that involves exploiting SQL injection, ipython and redis."
 categories:
   - HackTheBox

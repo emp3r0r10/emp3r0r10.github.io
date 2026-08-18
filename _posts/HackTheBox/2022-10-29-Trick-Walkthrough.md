@@ -3,7 +3,7 @@ title: "Trick Machine Writeup"
 classes: wide
 header:
   teaser: /assets/images/hackthebox/Trick-Writeup/Trick.png
-ribbon: red
+ribbon: limegreen
 description: "Trick is an easy linux machine that involves exploiting SQL injection, LFI and fail2ban service."
 categories:
   - HackTheBox

@@ -3,9 +3,8 @@ title: "CAT Reloaded CTF 2025 - Web Challenges"
 classes: wide
 header:
   teaser: /assets/images/ctf_writeups/CAT_Reloaded_CTF/CAT_Reloaded_Cover.png
-ribbon: blue
-description: "Hello, This my first CTF writeup (CAT Reloaded CTF). In this writeup I will explain how I get the flag for 9 web challenges. Let's get started.
-"
+ribbon: "#3366FF"
+description: "Hello, This my first CTF writeup (CAT Reloaded CTF). In this writeup I will explain how I get the flag for 9 web challenges. Let's get started."
 categories:
   - CTF Writeups
 toc: true

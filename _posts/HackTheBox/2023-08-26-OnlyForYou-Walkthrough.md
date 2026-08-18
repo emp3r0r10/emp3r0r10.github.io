@@ -3,7 +3,7 @@ title: "OnlyForYou Machine Writeup"
 classes: wide
 header:
   teaser: /assets/images/hackthebox/OnlyForYou-Writeup/OnlyForYou.png
-ribbon: red
+ribbon: limegreen
 description: "OnlyForYou is a medium Linux machine that includes LFI exploitation, code execution, cypher injection in `neo4j` database, and source code review."
 categories:
   - HackTheBox

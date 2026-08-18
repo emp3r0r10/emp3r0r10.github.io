@@ -3,13 +3,14 @@ title: "EscapeTwo Machine Writeup"
 classes: wide
 header:
   teaser: /assets/images/hackthebox/EscapeTwo-Writeup/EscapeTwo.png
-ribbon: lime-green
-description: "Hello Hackers, back with another HackTheBox machine writeup. It's been a while since I wrote a writeup about HackTheBox. My last writeup was in `17 February 2024`. Today's machine is [EscapeTwo](https://app.hackthebox.com/machines/642) (Windows/Medium). So, let's run the machine and go on. But first, I noticed that there piece of information about machine which provides us with credentials `rose:KxEPkKe6R8su` like real pentesting. So open any text editor to note everything we will face through the writeup.
-"
+ribbon: limegreen
+description: "Hello Hackers, back with another HackTheBox machine writeup. It's been a while since I wrote a writeup about HackTheBox. My last writeup was in `17 February 2024`. Today's machine is [EscapeTwo](https://app.hackthebox.com/machines/642) (Windows/Medium). So, let's run the machine and go on. But first, I noticed that there piece of information about machine which provides us with credentials `rose:KxEPkKe6R8su` like real pentesting. So open any text editor to note everything we will face through the writeup."
 categories:
   - HackTheBox
 toc: false
 ---
+
+<img src="D:\GitHub_Repos\emp3r0r10.github.io\assets\images\hackthebox\EscapeTwo-Writeup\EscapeTwo.png" alt="EscapeTwo" style="zoom: 50%;" />
 
 Hello Hackers, back with another HackTheBox machine writeup. It's been a while since I wrote a writeup about HackTheBox. My last writeup was in `17 February 2024`. Today's machine is [EscapeTwo](https://app.hackthebox.com/machines/642) (Windows/Medium). So, let's run the machine and go on. But first, I noticed that there piece of information about machine which provides us with credentials `rose:KxEPkKe6R8su` like real pentesting. So open any text editor to note everything we will face through the writeup.
 

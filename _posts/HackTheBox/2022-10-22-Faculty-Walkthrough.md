@@ -3,7 +3,7 @@ title: "Faculty Machine Writeup"
 classes: wide
 header:
   teaser: /assets/images/hackthebox/Faculty-Writeup/Faculty.png
-ribbon: red
+ribbon: limegreen
 description: "Faculty is a medium linux machine that involves mpdf exploitation, meta-git and privilege escalation with gdb."
 categories:
   - HackTheBox

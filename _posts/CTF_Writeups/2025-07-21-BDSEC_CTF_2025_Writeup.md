@@ -3,7 +3,7 @@ title: "BDSEC CTF 2025 Writeup"
 classes: wide
 header:
   teaser: /assets/images/ctf_writeups/BDSec_CTF/BDSEC_logo.png
-ribbon: blue
+ribbon: "#3366FF"
 description: "The challenge description gives us some hints and an overview of the challenge:"
 categories:
   - CTF Writeups

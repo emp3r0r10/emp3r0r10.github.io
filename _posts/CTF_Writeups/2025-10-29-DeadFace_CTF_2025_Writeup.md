@@ -3,7 +3,7 @@ title: "DEADFACE CTF 2025 - Hack The Night Writeup"
 classes: wide
 header:
   teaser: /assets/images/ctf_writeups/DeadFace_CTF/DeadFace_CTF_Logo.jpg
-ribbon: blue
+ribbon: "#3366FF"
 description: "Hello everyone, this my writeup for `Hack The Night` in DEADFACE CTF 2025. It covers a website and our goal is to retrieve the 10 flags for the 10 challenges. So, let's get started."
 categories:
   - CTF Writeups

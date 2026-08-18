@@ -3,7 +3,7 @@ title: "BsidesSF CTF 2025 Writeup"
 classes: wide
 header:
   teaser: /assets/images/ctf_writeups/Bsides_CTF/Bsides_Logo.png
-ribbon: blue
+ribbon: "#3366FF"
 description: "Hello, This is my writeup for BsidesSF CTF, In this writeup I will walk you through most web challenges that I solved. I will also show you how I solved another categories, so let's get started."
 categories:
   - CTF Writeups

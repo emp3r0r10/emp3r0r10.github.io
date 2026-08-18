@@ -3,7 +3,7 @@ title: "UMass CTF 2026 - Web Writeup"
 classes: wide
 header:
   teaser: /assets/images/ctf_writeups/UMass_CTF/UMassCTF_Logo.jpg
-ribbon: blue
+ribbon: "#3366FF"
 description: "Hello everyone, today's writeup will be for UMassCTF 2026, covering some web challenges."
 categories:
   - CTF Writeups
