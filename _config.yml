@@ -143,13 +143,16 @@ author:
 footer:
   links:
     - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url:
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url:
+      icon: "fab fa-fw fa-square-x-twitter"
+      url: "https://twitter.com/_emp3r0r10"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin-in"
+      url: "https://www.linkedin.com/in/abdelrahman-elshinbary/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
+      url: "https://github.com/emp3r0r10"
+    - label: "Facebook"
+      icon: "fab fa-fw fa-facebook-square"
       # url:
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
