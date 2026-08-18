@@ -1,19 +1,33 @@
+# # main links
+# main:
+#   # - title: "HackTheBox-Writeups"
+#   #   url: /categories/#hackthebox-walkthroughs
+#   # - title: "CTF-Writeups"
+#   #   url: /categories/#ctf-writeups
+#   # - title: "Bug-Hunting Writeups"
+#   #   url: /categories/#bug-hunting-writeups
+#   - title: "Web Pentesting"
+#     url: /categories/#web-pentesting
+#   - title: "Android Pentesting"
+#     url: /categories/#android-pentesting
+#   # - title: "Splunk-Tutorial"
+#   #   url: /categories/#splunk-tutorial
+#   - title: "All Categories"
+#     url: /categories
+#   # - title: "Sample Posts"
+#   #   url: /year-archive/
+#   # - title: "Sample Collections"
+#   #   url: /collection-archive/
+#   # - title: "Sitemap"
+#   #   url: /sitemap/
+#   # - title: "Quick-Start Guide"
+#   # url: https://google.com
 # main links
 main:
-  # - title: "HackTheBox-Writeups"
-  #   url: /categories/#hackthebox-walkthroughs
-  # - title: "CTF-Writeups"
-  #   url: /categories/#ctf-writeups
-  # - title: "Bug-Hunting Writeups"
-  #   url: /categories/#bug-hunting-writeups
-  - title: "Web-Pentesting"
+  - title: "Web Pentesting"
     url: /categories/#web-pentesting
-  - title: "Android-Pentesting"
+  - title: "Android Pentesting"
     url: /categories/#android-pentesting
-  # - title: "Splunk-Tutorial"
-  #   url: /categories/#splunk-tutorial
-  # - title: "All Categories"
-  #   url: /categories
   - title: "Categories"
     url: /categories/
     children:
@@ -25,19 +39,5 @@ main:
         url: /categories/#web-pentesting
       - title: "Android Pentesting"
         url: /categories/#android-pentesting
-      - title: "Cloud Pentesting"
-        url: /categories/#cloud-pentesting
-      - title: "Network Pentesting"
-        url: /categories/#network-pentesting
       - title: "SOC / Splunk"
-        url: /categories/#soc
-      - title: "Bug-Hunting"
-        url: /categories/#bug-hunting  
-  # - title: "Sample Posts"
-  #   url: /year-archive/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
-  # - title: "Sitemap"
-  #   url: /sitemap/
-  # - title: "Quick-Start Guide"
-  # url: https://google.com
+        url: /categories/#splunk-tutorial
