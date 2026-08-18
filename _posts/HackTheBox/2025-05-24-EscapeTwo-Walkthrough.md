@@ -3,37 +3,13 @@ title: "EscapeTwo Machine Writeup"
 classes: wide
 header:
   teaser: /assets/images/hackthebox/EscapeTwo-Writeup/EscapeTwo.png
-ribbon: red
+ribbon: lime-green
 description: "Hello Hackers, back with another HackTheBox machine writeup. It's been a while since I wrote a writeup about HackTheBox. My last writeup was in `17 February 2024`. Today's machine is [EscapeTwo](https://app.hackthebox.com/machines/642) (Windows/Medium). So, let's run the machine and go on. But first, I noticed that there piece of information about machine which provides us with credentials `rose:KxEPkKe6R8su` like real pentesting. So open any text editor to note everything we will face through the writeup.
 "
 categories:
   - HackTheBox
-toc: true
+toc: false
 ---
-
-<!-- ## Table of Contents
-
-  - [EscapeTwo Machine Writeup](#escapetwo-machine-writeup)
-  - [Recon](#recon)
-    - [Ports](#ports)
-      - [Port 53 (DNS)](#port-53-dns)
-        - [Enumeration](#enumeration)
-      - [Port 88 (Kerberos)](#port-88-kerberos)
-        - [Enumeration](#enumeration-1)
-      - [Port 135 (RPC)](#port-135-rpc)
-        - [Enumeration](#enumeration-2)
-      - [Port 389, 636, 3268, 3269 (LDAP)](#port-389-636-3268-3269-ldap)
-        - [Enumeration](#enumeration-3)
-      - [Port 139 & 445 (SMB)](#port-139-445-smb)
-        - [Enumeration](#enumeration-4)
-      - [Port 1433 (MSSQL)](#port-1433-mssql)
-        - [Enumeration](#enumeration-5)
-  - [Shell as SQL_SVC](#shell-as-sql_svc)
-  - [Shell as ryan](#shell-as-ryan)
-  - [Shell as administrator](#shell-as-administrator)
-  - [BloodHound Setup](#bloodhound-setup)
-  - [Beyond The Root](#beyond-the-root)
-  - [Resources](#resources) -->
 
 Hello Hackers, back with another HackTheBox machine writeup. It's been a while since I wrote a writeup about HackTheBox. My last writeup was in `17 February 2024`. Today's machine is [EscapeTwo](https://app.hackthebox.com/machines/642) (Windows/Medium). So, let's run the machine and go on. But first, I noticed that there piece of information about machine which provides us with credentials `rose:KxEPkKe6R8su` like real pentesting. So open any text editor to note everything we will face through the writeup.
 
