@@ -1,43 +1,24 @@
-# # main links
-# main:
-#   # - title: "HackTheBox-Writeups"
-#   #   url: /categories/#hackthebox-walkthroughs
-#   # - title: "CTF-Writeups"
-#   #   url: /categories/#ctf-writeups
-#   # - title: "Bug-Hunting Writeups"
-#   #   url: /categories/#bug-hunting-writeups
-#   - title: "Web Pentesting"
-#     url: /categories/#web-pentesting
-#   - title: "Android Pentesting"
-#     url: /categories/#android-pentesting
-#   # - title: "Splunk-Tutorial"
-#   #   url: /categories/#splunk-tutorial
-#   - title: "All Categories"
-#     url: /categories
-#   # - title: "Sample Posts"
-#   #   url: /year-archive/
-#   # - title: "Sample Collections"
-#   #   url: /collection-archive/
-#   # - title: "Sitemap"
-#   #   url: /sitemap/
-#   # - title: "Quick-Start Guide"
-#   # url: https://google.com
 # main links
 main:
   - title: "Web Pentesting"
     url: /categories/#web-pentesting
-  - title: "Android Pentesting"
+  - title: "AndroidPentesting"
     url: /categories/#android-pentesting
-  - title: "Categories"
-    url: /categories/
-    children:
-      - title: "HackTheBox"
-        url: /categories/#hackthebox
-      - title: "CTF Writeups"
-        url: /categories/#ctf-writeups
-      - title: "Web Pentesting"
-        url: /categories/#web-pentesting
-      - title: "Android Pentesting"
-        url: /categories/#android-pentesting
-      - title: "SOC / Splunk"
-        url: /categories/#splunk-tutorial
+  - title: "All Categories"
+    url: /categories
+  # - title: "HackTheBox-Writeups"
+  #   url: /categories/#hackthebox-walkthroughs
+  # - title: "CTF-Writeups"
+  #   url: /categories/#ctf-writeups
+  # - title: "Bug-Hunting Writeups"
+  #   url: /categories/#bug-hunting-writeups
+  # - title: "Splunk-Tutorial"
+  #   url: /categories/#splunk-tutorial
+  # - title: "Sample Posts"
+  #   url: /year-archive/
+  # - title: "Sample Collections"
+  #   url: /collection-archive/
+  # - title: "Sitemap"
+  #   url: /sitemap/
+  # - title: "Quick-Start Guide"
+  # url: https://google.com
