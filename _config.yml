@@ -291,3 +291,29 @@ defaults:
       comments: false
       share: false
       related: false
+
+  # Category-specific clean URL slugs
+  - scope:
+      path: "_posts/Android_Pentesting"
+    values:
+      permalink: /android-pentesting/:title/
+  - scope:
+      path: "_posts/CTF_Writeups"
+    values:
+      permalink: /ctf-writeups/:title/
+  - scope:
+      path: "_posts/HackTheBox"
+    values:
+      permalink: /hackthebox/:title/
+  - scope:
+      path: "_posts/Web_Pentesting"
+    values:
+      permalink: /web-pentesting/:title/
+  - scope:
+      path: "_posts/Splunk_Tutorial"
+    values:
+      permalink: /splunk-tutorial/:title/      
+  - scope:
+      path: "_posts/Bug-Hunting"
+    values:
+      permalink: /bug-hunting/:title/
