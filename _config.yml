@@ -12,9 +12,9 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "aqua"
+minimal_mistakes_skin    : "dark"
 # "air" => off-white,
-# "aqua" => ,
+# "aqua" => green,
 # "contrast" => white,
 # "dark" => ,
 # "dirt" => ,
