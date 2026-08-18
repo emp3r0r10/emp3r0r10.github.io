@@ -12,16 +12,16 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "dirt"
+minimal_mistakes_skin    : "dark"
 # "air" => off-white,
 # "aqua" => green,
 # "contrast" => white,
 # "dark" => my theme (like grey),
-# "dirt" => ,
+# "dirt" => white also,
 # "neon" => dark (very black),
 # "mint" => white also,
 # "plum" => purple,
-# "sunrise" => 
+# "sunrise" => white also
 
 # Site Settings
 locale                   : "en-US"
