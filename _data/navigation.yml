@@ -8,6 +8,8 @@ main:
     url: /categories/#bug-hunting-writeups
   - title: "Tutorials"
     url: /categories/#tutorials
+  - title: "Android Pentesting"
+    url: /categories/#android-pentesting
   - title: "All Categories"
     url: /categories
   # - title: "Sample Posts"
