@@ -12,14 +12,14 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "mint"
+minimal_mistakes_skin    : "dirt"
 # "air" => off-white,
 # "aqua" => green,
 # "contrast" => white,
 # "dark" => my theme (like grey),
 # "dirt" => ,
 # "neon" => dark (very black),
-# "mint" => ,
+# "mint" => white also,
 # "plum" => purple,
 # "sunrise" => 
 
