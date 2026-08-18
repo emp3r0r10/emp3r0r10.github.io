@@ -12,13 +12,13 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "air"
-# "air" => ,
+minimal_mistakes_skin    : "aqua"
+# "air" => off-white,
 # "aqua" => ,
 # "contrast" => white,
 # "dark" => ,
 # "dirt" => ,
-# "neon" => ,
+# "neon" => dark (very black),
 # "mint" => ,
 # "plum" => purple,
 # "sunrise" => 
