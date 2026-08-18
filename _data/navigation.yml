@@ -12,8 +12,27 @@ main:
     url: /categories/#android-pentesting
   # - title: "Splunk-Tutorial"
   #   url: /categories/#splunk-tutorial
-  - title: "All Categories"
-    url: /categories
+  # - title: "All Categories"
+  #   url: /categories
+  - title: "Categories"
+    url: /categories/
+    children:
+      - title: "HackTheBox"
+        url: /categories/#hackthebox
+      - title: "CTF Writeups"
+        url: /categories/#ctf-writeups
+      - title: "Web Pentesting"
+        url: /categories/#web-pentesting
+      - title: "Android Pentesting"
+        url: /categories/#android-pentesting
+      - title: "Cloud Pentesting"
+        url: /categories/#cloud-pentesting
+      - title: "Network Pentesting"
+        url: /categories/#network-pentesting
+      - title: "SOC / Splunk"
+        url: /categories/#soc
+      - title: "Bug-Hunting"
+        url: /categories/#bug-hunting  
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"
