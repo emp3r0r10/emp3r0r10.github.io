@@ -3,7 +3,7 @@ title: "Drive Machine Writeup"
 classes: wide
 header:
   teaser: /assets/images/hackthebox/Drive-Writeup/Drive.png
-ribbon: lime-green
+ribbon: limegreen
 description: "Drive is HackTheBox Hard Linux Machine which starts with a website that I can upload, store, edit, and share files. as well as adding groups and showing reports. First I'll register an account and upload a file. I'll try to reverse it and find an `IDOR` vulnerability. Then I'll brute force the file's ids using burp intruder and found login credentials to SSH into machine. I'll forward port `3000` and discover `Gitea` service. I'll extract database from `backups` folder and read `db.sqlite3` file. I'll reverse engineer a binary file and read source code using `IDA`. Finally I'll exploit `Remote Code Execution` using `load_extension` library in `sqlite3`."
 categories:
   - HackTheBox
